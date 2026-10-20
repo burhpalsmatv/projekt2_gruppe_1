@@ -1,0 +1,26 @@
+drop database if exists projekt2_gruppe_1_db;
+create database projekt2_gruppe_1_db;
+use projekt2_gruppe_1_db;
+
+create table users
+(
+id int unsigned auto_increment primary key,
+firstName varchar(250) not null,
+lastName varchar(250) not null,
+age int not null,
+email varchar(500) not null,
+phoneNum int not null,
+profilePicture varchar(1000)
+);
+
+create table wishlist
+(
+id int unsigned auto_increment primary key,
+ownerId int,
+amountOfWishes int,
+coverImg varchar(1000)
+
+constraint fk_ownerId
+foreign key(ownerId)
+references(users
+);
