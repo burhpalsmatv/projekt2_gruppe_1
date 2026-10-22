@@ -10,18 +10,18 @@ public class Wishlist {
     private int wishListId;
     private String coverImg;
 
-    public Wishlist(String owner, LocalDate date, int wishListId, String coverImg) {
+    public Wishlist(String owner, LocalDate date, int wishListId) {
         wishList = new ArrayList<>();
         this.owner = owner;
         this.date = date;
         this.wishListId = wishListId;
-        this.coverImg = coverImg;
+        this.coverImg = "defaultcoverimg.png";
     }
 
-    public Wishlist(int wishListId, String coverImg) {
+    public Wishlist(int wishListId) {
         wishList = new ArrayList<>();
         this.wishListId = wishListId;
-        this.coverImg = coverImg;
+        this.coverImg = "defaultcoverimg.png";
     }
 
     public ArrayList<Wish> getWishList() {
