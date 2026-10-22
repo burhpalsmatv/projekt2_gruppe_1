@@ -1,10 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
 </head>
-<body>
 
+<body>
+<div class = "container">
+<div class="headerArea">
+    <nav class="navbar" style="margin-bottom: 10px;">
+        <ul>
+            <li><a th:href="@{#}">Home</a></li>
+            <li><a th:href="@{/wishlist}">Ønskelister</a></li>
+        </ul>
+    </nav>
+</div>
+
+<div class="flex">
+    <main>
+        <h1>NUMBERONE WISHLIST</h1>
+        <p><strong>Info title her</strong></p>
+
+        <p>Skriv noget klogt corporate tekst her</p>
+        <p><i>Good artist copy, great artists steal</i> -Mattie</p>
+    </main>
+</div>
+</div>
 </body>
 </html>

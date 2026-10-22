@@ -1,4 +1,5 @@
 package dk.ek.onskeskyen.controller;
 
-public class WishListController {
+public class WishListController{
+
 }

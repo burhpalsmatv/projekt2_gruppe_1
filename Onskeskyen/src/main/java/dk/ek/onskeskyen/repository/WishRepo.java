@@ -50,7 +50,7 @@ public class WishRepo {
     }
 
     public void deleteWish(int wishId) {
-        String sql = "DELETE * FROM wish WHERE wishId = ?";
+        String sql = "DELETE FROM wish WHERE wishId = ?";
 
         try(Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql)) {
