@@ -1,6 +1,5 @@
 package dk.ek.onskeskyen.controller;
 
-import dk.ek.onskeskyen.model.WishList;
 import dk.ek.onskeskyen.model.Wishlist;
 import dk.ek.onskeskyen.repository.WishListRepo;
 import org.springframework.beans.factory.annotation.Autowired;
