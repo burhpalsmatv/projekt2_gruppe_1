@@ -2,19 +2,21 @@ package dk.ek.onskeskyen.model;
 
 public class User {
 
+    private int userId;
     private String email;
     private String profilePicture;
     private String phoneNumber;
     private int age;
 
-    public User(String email, String phoneNumber, int age) {
+    public User(int userId, String email, String phoneNumber, int age) {
+        this.userId = userId;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.age = age;
     }
 
     public String toString() {
-        return "email: " + email + " - tlf: " + phoneNumber;
+        return "email: " + email + " - tlf: " + phoneNumber + " - id: " + userId;
     }
 
     //GETTERS + SETTERS BELOW
