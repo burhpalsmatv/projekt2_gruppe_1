@@ -1,0 +1,121 @@
+/* container bruges til at wrappe hele hjemmesiden */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+/* alle links i container div*/
+.container a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/*hvis der skal billede/video som header kan det indsættes her med en .header video*/
+.header {
+    width: 100%;
+    background-color: white;
+    height: 150px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* navigations bar */
+.navbar {
+    height: 40px;
+    background-color: white;
+    border-color: black;
+    width: 100%;
+}
+
+.navbar ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    justify-content: space-evenly;
+}
+
+.navbar li {
+    padding-top: 10px;
+}
+
+/* links i navigations bar*/
+.navbar li a {
+    color: black;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+/* når man hover over et link i navigations bar :D */
+.navbar li a:hover {
+    color: dimgrey;
+    text-decoration: underline;
+}
+
+.flex {
+    display: flex;
+}
+
+/* hvis der skal være en sidebar, hvis der skal være forskellige sidebars så lav en .rightSidebar og en .leftSidebar*/
+aside {}
+
+main {
+    background-color: white;
+    flex: 1;
+    padding: 20px;
+    order: 2;
+}
+
+footer {
+    background-color: white;
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    text-align: center;
+}
+
+.wishBox {
+    background-color: dimgray;
+    border: 1px solid black;
+    padding: 15px;
+    margin: 15px;
+    /*størrelsen på boksen, ændre efter behov*/
+    width: calc(25% - 30px);
+    height: 650px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+/*billedet inde i wishBox */
+.wishBox img {
+    width: 100%;
+    height: 300px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    object-fit: fill;
+}
+.wishBox div {
+    width: 100%;
+}
+
+.wishBox label {
+    font-weight: bold;
+}
+
+/* responsivitet på hjemmeside */
+@media only screen and (max-width: 800px) {
+    .flex {
+        flex-wrap: wrap;
+    }
+
+    aside {
+        width: 100%;
+    }
+
+    .navbar ul {
+        flex-wrap: wrap;
+    }
+}

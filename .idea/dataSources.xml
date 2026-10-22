@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="projekt2_gruppe_1_db@localhost" uuid="80f1df91-a3b9-46f4-9893-0a49cf1cba76">
+    <data-source source="LOCAL" name="projekt2_gruppe_1_db@localhost [2]" uuid="84ff72c0-dcd6-41c3-9cf3-9998ee1d829a">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>$PROJECT_DIR$/Onskeskyen/src/main/resources/application.properties</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/projekt2_gruppe_1_db</jdbc-url>
       <jdbc-additional-properties>
