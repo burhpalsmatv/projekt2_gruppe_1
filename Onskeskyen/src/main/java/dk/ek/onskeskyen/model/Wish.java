@@ -1,17 +1,25 @@
 package dk.ek.onskeskyen.model;
 
 public class Wish {
+    private int wishId;
     private String title;
     private double price;
-    private String img;
+    private String wishImg;
     private String link;
     private String note;
+    private boolean priority = false;
 
 
     public Wish(String title, double price, String link) {
         this.title = title;
         this.price = price;
         this.link = link;
+    }
+
+    public Wish(){}
+
+    public void setWishId(int wishId) {
+        this.wishId = wishId;
     }
 
     public void setTitle(String title) {
@@ -22,8 +30,8 @@ public class Wish {
         this.price = price;
     }
 
-    public void setImg(String img) {
-        this.img = img;
+    public void setWishImg(String wishImg) {
+        this.wishImg = wishImg;
     }
 
     public void setLink(String link) {
@@ -34,6 +42,14 @@ public class Wish {
         this.note = note;
     }
 
+    public void setPriority(boolean priority) {
+        this.priority = priority;
+    }
+
+    public int getWishId() {
+        return wishId;
+    }
+
     public String getTitle(){
         return title;
     }
@@ -42,8 +58,8 @@ public class Wish {
         return price;
     }
 
-    public String getImg() {
-        return img;
+    public String getWishImg() {
+        return wishImg;
     }
 
     public String getLink() {
@@ -54,8 +70,12 @@ public class Wish {
         return note;
     }
 
+    public boolean getPriority() {
+        return priority;
+    }
+
     @Override
     public String toString() {
-        return String.format("Ønske title: %s, pris: %.2f, billede: %s, link: %s, note: %s", getTitle(), getPrice(), getImg(), getLink(), getNote());
+        return String.format("Ønske title: %s, pris: %.2f, billede: %s, link: %s, note: %s", getTitle(), getPrice(), getWishImg(), getLink(), getNote());
     }
 }

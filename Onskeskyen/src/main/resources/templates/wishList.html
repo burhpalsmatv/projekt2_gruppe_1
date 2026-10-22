@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Valdemar er en taeber</title>
+    <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
+</head>
+
+<body>
+<div class = container>
+    <div class="wishBox" th:each="wish : ${wishList}">
+        <div>
+            <label>ID:</label>
+            <span th:text="${account.accountId}">ID</span>
+        </div>
+        <div>
+            <label>First Name:</label>
+            <span th:text="${account.firstName}">First Name</span>
+        </div>
+        <div>
+            <label>Last Name:</label>
+            <span th:text="${account.lastName}">Last Name</span>
+        </div>
+        <div>
+            <label>Saldo:</label>
+            <span th:text="${#numbers.formatCurrency(account.saldo)}">Saldo</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

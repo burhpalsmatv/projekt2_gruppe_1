@@ -22,6 +22,14 @@ public class Wishlist {
         this.coverImg = coverImg;
     }
 
+    public Wishlist(int wishListId, int wishId, int amountOfWishes, String coverImg) {
+        wishList = new ArrayList<>();
+        this.wishListId = wishListId;
+        this.wishId = wishId;
+        this.amountOfWishes = amountOfWishes;
+        this.coverImg = coverImg;
+    }
+
     public ArrayList<Wish> getWishList() {
         return wishList;
     }
