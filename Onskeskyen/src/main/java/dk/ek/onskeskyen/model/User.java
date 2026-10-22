@@ -15,6 +15,9 @@ public class User {
         this.age = age;
     }
 
+    public User() {
+    }
+
     public String toString() {
         return "email: " + email + " - tlf: " + phoneNumber + " - id: " + userId;
     }
@@ -39,6 +42,14 @@ public class User {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public void setPhoneNumber(String phoneNumber) {

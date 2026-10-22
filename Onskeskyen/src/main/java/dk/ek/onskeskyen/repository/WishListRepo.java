@@ -60,8 +60,8 @@ public class WishListRepo {
     }
 
 
-    public void delete(int wishListId) {
-        String sql = "DELETE FROM wishlist WHERE wishListId = ?";
+    public void deleteWishList(int wishListId) {
+        String sql = "DELETE * FROM wishlist WHERE wishListId = ?";
 
         try(Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql)) {
