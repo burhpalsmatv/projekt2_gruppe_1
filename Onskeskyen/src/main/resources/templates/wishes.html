@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Valdemar er en taeber</title>
+  <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
+</head>
+
+<body>
+<div class=container>
+  <div class="headerArea">
+    <div class="header" style="height: 150px;">
+    </div>
+    <nav class="navbar" style="margin-bottom: 10px;">
+      <ul>
+        <li><a th:href="@{/index}">Home</a></li>
+        <li><a th:href="@{/wishlist}">Ønskelister</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="flex">
+    <main>
+      <h1>Ønsker:</h1>
+      <div class="wishBox" th:each="wish : ${listOfWishes}">
+        <img th:src="@{'/img/' + ${wish.wishImg}}" alt="wish image"/>
+        <div>
+          <label>Titel:</label>
+          <span th:text="${wish.title}">Titel</span>
+        </div>
+        <div>
+          <label>Pris:</label>
+          <span th:text="${wish.price}">Pris</span>
+        </div>
+        <div>
+          <label>Note:</label>
+          <span th:text="${wish.link}">Link</span>
+        </div>
+        <div>
+          <label>Prioteret ønske:</label>
+          <span th:text="${wish.priority}">Prioteret ønske</span>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+</body>
+</html>
