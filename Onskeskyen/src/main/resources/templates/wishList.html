@@ -9,23 +9,12 @@
 
 <body>
 <div class = container>
-    <div class="wishBox" th:each="wish : ${wishList}">
+    <div class="wishBox" th:each="wish : ${listOfWishes}">
         <div>
-            <label>ID:</label>
-            <span th:text="${account.accountId}">ID</span>
+            <label>Titel</label>
+            <span th:text="${wish.getTitle()}">Title</span>
         </div>
-        <div>
-            <label>First Name:</label>
-            <span th:text="${account.firstName}">First Name</span>
-        </div>
-        <div>
-            <label>Last Name:</label>
-            <span th:text="${account.lastName}">Last Name</span>
-        </div>
-        <div>
-            <label>Saldo:</label>
-            <span th:text="${#numbers.formatCurrency(account.saldo)}">Saldo</span>
-        </div>
+
     </div>
 </div>
 </body>

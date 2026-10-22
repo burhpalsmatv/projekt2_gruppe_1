@@ -18,8 +18,8 @@ public class WishRepo {
     @Autowired
     protected DataSource dataSource;
 
-    public List<Wish> getAllWishes() {
-        List<Wish> listOfWishes = new ArrayList<>();
+    public ArrayList<Wish> getAllWishes() {
+        ArrayList<Wish> listOfWishes = new ArrayList<>();
         String sql = "SELECT * FROM wish";
 
         try (Connection con = dataSource.getConnection();
@@ -34,6 +34,7 @@ public class WishRepo {
                 wish.setNote(resultSet.getString("note"));
                 wish.setLink(resultSet.getString("link"));
                 wish.setWishImg(resultSet.getString("wishImg"));
+                wish.setWishListId(resultSet.getInt("wishListId"));
                 if (resultSet.getInt("priority") == 1) {
                     wish.setPriority(true);
                 } else {
@@ -50,7 +51,7 @@ public class WishRepo {
     }
 
     public void deleteWish(int wishId) {
-        String sql = "DELETE * FROM wish WHERE wishId = ?";
+        String sql = "DELETE FROM wish WHERE wishId = ?";
 
         try(Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql)) {
