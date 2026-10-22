@@ -24,7 +24,6 @@ public class UserController {
     }
 
 
-
     @GetMapping("/getCreateUser")
     public String createUser(){
         return "createUser";
@@ -32,20 +31,22 @@ public class UserController {
 
     @PostMapping("/saveCreateUser")
     public String postCreateUser(
+            @RequestParam("firstName") String firstName,
+            @RequestParam("lastname") String lastName,
             @RequestParam("userId") int userId,
             @RequestParam("email") String email,
             @RequestParam("phoneNumber") String phoneNumber,
             @RequestParam("age") int age
     ){
-        User user = new User(userId, email, phoneNumber, age);
-        userRepo.save(user);
+        User user = new User(firstName, lastName, userId, email, phoneNumber, age);
+        userRepo.saveUser(user);
         return "redirect:/";
     }
 
 
     @PostMapping("/deleteUser")
     public String deleteUser(@RequestParam("userId") int userId) {
-        userRepo.delete(userId);
+        userRepo.deleteUser(userId);
         return "redirect:/";
     }
 

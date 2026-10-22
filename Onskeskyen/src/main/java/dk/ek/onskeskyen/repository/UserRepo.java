@@ -1,6 +1,7 @@
 package dk.ek.onskeskyen.repository;
 
 import dk.ek.onskeskyen.model.User;
+import dk.ek.onskeskyen.model.Wishlist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -44,4 +45,41 @@ public class UserRepo {
         }
         return listOfUsers;
     }
+
+
+    public void deleteUser(int userId) {
+        String sql = "DELETE * FROM users WHERE userId = ?";
+
+        try(Connection connection = dataSource.getConnection();
+            PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, userId);
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void saveUser (User user){
+        String sql = "INSERT INTO users(firstName, lastName, userId, age, email, phoneNum )" +
+                "VALUES(?, ?, ?, ?, ?, ?)";
+
+        try(Connection connection = dataSource.getConnection();
+            PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, user.getFirstName());
+            statement.setString(2, user.getLastName());
+            statement.setInt(3, user.getUserId());
+            statement.setInt(4, user.getAge());
+            statement.setString(5, user.getEmail());
+            statement.setString(6, user.getPhoneNumber());
+
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
+
