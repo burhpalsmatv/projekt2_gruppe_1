@@ -1,7 +1,6 @@
 package dk.ek.onskeskyen.repository;
 
 import dk.ek.onskeskyen.model.User;
-import dk.ek.onskeskyen.model.Wishlist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -35,6 +34,7 @@ public class UserRepo {
                 user.setEmail(resultSet.getString("email"));
                 user.setProfilePicture(resultSet.getString("profilePicture"));
                 user.setPhoneNumber(resultSet.getString("phoneNumber"));
+                user.setProfilePicture(resultSet.getString("profilePicture"));
 
                 listOfUsers.add(user);
 
@@ -62,8 +62,8 @@ public class UserRepo {
     }
 
     public void saveUser (User user){
-        String sql = "INSERT INTO users(firstName, lastName, userId, age, email, phoneNum )" +
-                "VALUES(?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO users(firstName, lastName, userId, age, email, phoneNum, profilePicture )" +
+                "VALUES(?, ?, ?, ?, ?, ?, ?)";
 
         try(Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -74,6 +74,8 @@ public class UserRepo {
             statement.setInt(4, user.getAge());
             statement.setString(5, user.getEmail());
             statement.setString(6, user.getPhoneNumber());
+            statement.setString(7, user.getProfilePicture());
+
 
             statement.executeUpdate();
 
