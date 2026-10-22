@@ -36,9 +36,12 @@ public class UserController {
             @RequestParam("userId") int userId,
             @RequestParam("email") String email,
             @RequestParam("phoneNumber") String phoneNumber,
-            @RequestParam("age") int age
-    ){
-        User user = new User(firstName, lastName, userId, email, phoneNumber, age);
+            @RequestParam("age") int age,
+            @RequestParam("profilePicture") String profilePicture){
+
+        String img = userService.getImg(profilePicture);
+
+        User user = new User(firstName, lastName, userId, email, phoneNumber, age, img);
         userRepo.saveUser(user);
         return "redirect:/";
     }
