@@ -2,7 +2,6 @@ package dk.ek.onskeskyen.controller;
 
 import dk.ek.onskeskyen.model.User;
 import dk.ek.onskeskyen.repository.UserRepo;
-import dk.ek.onskeskyen.repository.WishListRepo;
 import dk.ek.onskeskyen.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
