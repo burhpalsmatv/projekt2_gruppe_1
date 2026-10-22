@@ -15,7 +15,7 @@ import java.util.List;
 public class HomeController {
 
     @Autowired
-    WishlistRepo wishListRepo;
+    WishlistRepo wishlistRepo;
     WishRepo wishRepo;
 
     @GetMapping("/index")
@@ -25,7 +25,7 @@ public class HomeController {
 
     @GetMapping("/wishlist")
     public String getWishlist(Model model) {
-        List<Wishlist> listOfWishlist = wishListRepo.getAllWishlists();
+        List<Wishlist> listOfWishlist = wishlistRepo.getAllWishlists();
         model.addAttribute("listOfWishlist", listOfWishlist);
         return "wishlist";
     }
