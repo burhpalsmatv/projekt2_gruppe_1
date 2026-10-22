@@ -34,15 +34,18 @@ public class WishRepo {
                 wish.setNote(resultSet.getString("note"));
                 wish.setLink(resultSet.getString("link"));
                 wish.setWishImg(resultSet.getString("wishImg"));
-                wish.setPriority(resultSet.get);
-                accountList.add(account);
+                if (resultSet.getInt("priority") == 1) {
+                    wish.setPriority(true);
+                } else {
+                    wish.setPriority(false);
+                }
+                listOfWishes.add(wish);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return accountList;
-    }
+        return listOfWishes;
     }
 }
