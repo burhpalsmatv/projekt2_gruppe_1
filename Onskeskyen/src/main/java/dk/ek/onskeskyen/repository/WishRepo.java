@@ -62,4 +62,8 @@ public class WishRepo {
             e.printStackTrace();
         }
     }
+
+    public void save(Wish wish){
+
+    }
 }
