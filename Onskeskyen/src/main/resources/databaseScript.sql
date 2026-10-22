@@ -44,18 +44,6 @@ create table users
             references wishlist(wishListId)
 );
 
-create table wishAndWishListConnector
-(
-    wishId2 int,
-    wishListId2 int,
-
-    constraint fk_wishId2
-        foreign key(wishId2)
-            references wish(wishId),
-    constraint fk_wishListId2
-        foreign key(wishListId2)
-            references wishlist(wishListId)
-);
 
 INSERT INTO wishlist (wishListId) VALUES (1), (2), (3);
 
@@ -65,5 +53,6 @@ INSERT INTO wish (title, price, wishListId) VALUES ('Cykel', 500, 1), ('Kingston
 
 
 INSERT INTO users (userWishListId, firstName, lastName, age, email, phoneNum) VALUES (1, 'Mateusz', 'Filipowski', 26, 'mateuszfilipowski00@gmail.com', 50230646);
+
 
 

@@ -27,10 +27,8 @@ public class WishListRepo {
 
             while (resultSet.next()) {
                 int wishListId = resultSet.getInt("wishListId");
-                int wishId = resultSet.getInt("wishId");
-                int amountOfWishes = resultSet.getInt("amountOfWishes");
                 String coverImg = resultSet.getString("coverImg");
-                lists.add(new Wishlist(wishListId, wishId, amountOfWishes, coverImg));
+                lists.add(new Wishlist(wishListId, coverImg));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -42,7 +40,7 @@ public class WishListRepo {
 
     public Wishlist getWishList(int wishListId) {
         Wishlist wishlist = null;
-        String sql = "SELCET FROM wishlist WHERE wishListId =?";
+        String sql = "SELECT * FROM wishlist WHERE wishListId =?";
 
         try (Connection connection = dataSource.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -51,10 +49,8 @@ public class WishListRepo {
 
             if (resultSet.next()) {
                 int wishListID = resultSet.getInt("wishListId");
-                int wishId = resultSet.getInt("wishId");
-                int amountOfWishes = resultSet.getInt("amountOfWishes");
                 String coverImg = resultSet.getString("coverImg");
-                wishlist = new Wishlist(wishListId, wishId, amountOfWishes, coverImg);
+                wishlist = new Wishlist(wishListId, coverImg);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -86,8 +82,6 @@ public class WishListRepo {
             PreparedStatement statement = connection.prepareStatement(sql)) {
 
             statement.setInt(1, wishlist.getWishListId());
-            statement.setInt(2, wishlist.getWishId());
-            statement.setInt(3, wishlist.getAmountOfWishes());
             statement.setString(4, wishlist.getCoverImg());
 
             statement.executeUpdate();

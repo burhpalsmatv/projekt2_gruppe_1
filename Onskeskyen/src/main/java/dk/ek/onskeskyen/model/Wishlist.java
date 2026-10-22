@@ -8,25 +8,19 @@ public class Wishlist {
     private String owner;
     private LocalDate date;
     private int wishListId;
-    private int wishId;
-    private int amountOfWishes;
     private String coverImg;
 
-    public Wishlist(String owner, LocalDate date, int wishListId, int wishId, int amountOfWishes, String coverImg) {
+    public Wishlist(String owner, LocalDate date, int wishListId, String coverImg) {
         wishList = new ArrayList<>();
         this.owner = owner;
         this.date = date;
         this.wishListId = wishListId;
-        this.wishId = wishId;
-        this.amountOfWishes = amountOfWishes;
         this.coverImg = coverImg;
     }
 
-    public Wishlist(int wishListId, int wishId, int amountOfWishes, String coverImg) {
+    public Wishlist(int wishListId, String coverImg) {
         wishList = new ArrayList<>();
         this.wishListId = wishListId;
-        this.wishId = wishId;
-        this.amountOfWishes = amountOfWishes;
         this.coverImg = coverImg;
     }
 
@@ -62,21 +56,6 @@ public class Wishlist {
         this.wishListId = wishListId;
     }
 
-    public int getWishId() {
-        return wishId;
-    }
-
-    public void setWishId(int wishId) {
-        this.wishId = wishId;
-    }
-
-    public int getAmountOfWishes() {
-        return amountOfWishes;
-    }
-
-    public void setAmountOfWishes(int amountOfWishes) {
-        this.amountOfWishes = amountOfWishes;
-    }
 
     public String getCoverImg() {
         return coverImg;
@@ -92,8 +71,6 @@ public class Wishlist {
                 "owner='" + owner + '\'' +
                 ", date=" + date +
                 ", wishListId=" + wishListId +
-                ", wishId=" + wishId +
-                ", amountOfWishes=" + amountOfWishes +
                 ", coverImg='" + coverImg + '\'' +
                 '}';
     }
