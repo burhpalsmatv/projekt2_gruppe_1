@@ -6,7 +6,7 @@ public class WishListService {
 
     public void createWishList( int testvariable /* Indtast parametre fra DB */ ) {
 
-        Wishlist wishlist = new Wishlist(testvariable);
+        // Wishlist wishlist = new Wishlist();
 
     }
 }
