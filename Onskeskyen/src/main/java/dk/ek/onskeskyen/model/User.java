@@ -2,13 +2,17 @@ package dk.ek.onskeskyen.model;
 
 public class User {
 
+    private String firstName;
+    private String lastName;
     private int userId;
     private String email;
     private String profilePicture;
     private String phoneNumber;
     private int age;
 
-    public User(int userId, String email, String phoneNumber, int age) {
+    public User(String firstName, String lastName, int userId, String email, String phoneNumber, int age) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.userId = userId;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -19,10 +23,27 @@ public class User {
     }
 
     public String toString() {
-        return "email: " + email + " - tlf: " + phoneNumber + " - id: " + userId;
+        return "first name: " + "last name: " + "email: " + email + " - tlf: " + phoneNumber + " - id: " + userId;
     }
 
     //GETTERS + SETTERS BELOW
+
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     public String getEmail() {
         return email;
@@ -63,6 +84,8 @@ public class User {
     public void setAge(int age) {
         this.age = age;
     }
+
+
 
 
 }

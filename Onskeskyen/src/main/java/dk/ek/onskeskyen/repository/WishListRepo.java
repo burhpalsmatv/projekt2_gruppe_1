@@ -74,7 +74,7 @@ public class WishListRepo {
 
     }
 
-    public void save (Wishlist wishlist){
+    public void saveWishList (Wishlist wishlist){
         String sql = "INSERT INTO wishlist(wishListId, wishId, amountOfWishes, coverImg)" +
                 "VALUES(?,?, ?, ?)";
 
