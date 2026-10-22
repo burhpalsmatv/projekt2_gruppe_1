@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class OnskeskyenApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(OnskeskyenApplication.class, args);
     }
 
