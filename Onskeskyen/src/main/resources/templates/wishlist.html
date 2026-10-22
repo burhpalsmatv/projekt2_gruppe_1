@@ -3,36 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Ønskelister</title>
+    <title>Valdemar er en taeber</title>
     <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
 </head>
 
 <body>
-<div class=container>
-    <div class="headerArea">
-        <div class="header" style="height: 150px;"></div>
-        <nav class="navbar" style="margin-bottom: 10px;">
-            <ul>
-                <li><a th:href="@{/index}">Home</a></li>
-                <li><a th:href="@{#}">Ønskelister</a></li>
-            </ul>
-        </nav>
-    </div>
+<div class = container>
+    <div class="wishBox" th:each="wish : ${listOfWishes}">
+        <div>
+            <label>Titel</label>
+            <span th:text="${wish.getTitle()}">Title</span>
+        </div>
 
-    <div class="flex">
-        <main>
-            <h1>Ønskelister</h1>
-<!--            kig på mig-->
-            <div class="wishContainer">
-            <div class="wishBox" th:each="wishlist : ${listOfWishlist}">
-                <img th:src="@{'/img/' + ${wishlist.coverImg}}" alt="wishlist image" th:href="@{/wishes}"/>
-                <div>
-                    <label>Titel:</label>
-                    <span th:text="${wishlist.wishlistTitle}">Titel</span>
-                </div>
-            </div>
-            </div>
-        </main>
     </div>
 </div>
 </body>

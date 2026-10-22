@@ -27,6 +27,8 @@ create table wish
 
 );
 
+
+
 create table users
 (
     userId         int auto_increment primary key,
@@ -57,5 +59,6 @@ VALUES (1, 'Mateusz', 'Filipowski', 26, 'mateuszfilipowski00@gmail.com', 5023064
 
 insert into wishlist (wishlistTitle)
 values('første ønskeliste');
+
 
 

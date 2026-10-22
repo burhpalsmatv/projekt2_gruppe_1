@@ -7,6 +7,7 @@ public class Wish {
     private String wishImg;
     private String link;
     private String note;
+    private int wishListId;
     private boolean priority = false;
 
 
@@ -20,6 +21,14 @@ public class Wish {
 
     public void setWishId(int wishId) {
         this.wishId = wishId;
+    }
+
+    public void setWishListId(int wishListId){
+        this.wishListId = wishListId;
+    }
+
+    public int getWishListId(){
+        return wishListId;
     }
 
     public void setTitle(String title) {
