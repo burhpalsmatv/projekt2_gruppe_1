@@ -48,4 +48,17 @@ public class WishRepo {
 
         return listOfWishes;
     }
+
+    public void deleteWish(int wishId) {
+        String sql = "DELETE * FROM wish WHERE wishId = ?";
+
+        try(Connection connection = dataSource.getConnection();
+            PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, wishId);
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
