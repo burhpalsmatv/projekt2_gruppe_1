@@ -7,6 +7,7 @@ public class Wishlist {
     private int wishlistId;
     private String wishlistTitle;
     private String coverImg;
+    private LocalDate date;
 
     public Wishlist(String wishlistTitle) {
         this.wishlistTitle = wishlistTitle;
@@ -26,8 +27,10 @@ public class Wishlist {
         this.coverImg = coverImg;
     }
 
+    // Tom Constructor
     public Wishlist() {}
 
+    // Getters
     public int getWishlistId() {
         return wishlistId;
     }
@@ -40,6 +43,11 @@ public class Wishlist {
         return coverImg;
     }
 
+    public LocalDate getDate() {
+        return this.date;
+    }
+
+    // Setters
     public void setWishlistId(int wishlistId) {
         this.wishlistId = wishlistId;
     }
@@ -50,6 +58,10 @@ public class Wishlist {
 
     public void setCoverImg(String coverImg) {
         this.coverImg = coverImg;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 
     @Override
