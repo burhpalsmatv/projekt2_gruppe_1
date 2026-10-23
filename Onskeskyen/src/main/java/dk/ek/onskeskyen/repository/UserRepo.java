@@ -34,6 +34,7 @@ public class UserRepo {
                 user.setEmail(resultSet.getString("email"));
                 user.setProfilePicture(resultSet.getString("profilePicture"));
                 user.setPhoneNumber(resultSet.getString("phoneNumber"));
+                user.setPassword(resultSet.getString("password"));
                 user.setProfilePicture(resultSet.getString("profilePicture"));
 
                 listOfUsers.add(user);
@@ -62,8 +63,8 @@ public class UserRepo {
     }
 
     public void saveUser (User user){
-        String sql = "INSERT INTO users(firstName, lastName, userId, age, email, phoneNum, profilePicture )" +
-                "VALUES(?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO users(firstName, lastName, userId, age, email, phoneNum, password, profilePicture )" +
+                "VALUES(?, ?, ?, ?, ?, ?, ?, ?)";
 
         try(Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql)) {
