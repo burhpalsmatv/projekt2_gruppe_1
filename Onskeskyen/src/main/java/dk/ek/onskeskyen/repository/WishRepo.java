@@ -1,6 +1,7 @@
 package dk.ek.onskeskyen.repository;
 
 import dk.ek.onskeskyen.model.Wish;
+import dk.ek.onskeskyen.model.Wishlist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -10,7 +11,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 
 @Repository
 public class WishRepo {
@@ -38,7 +38,7 @@ public class WishRepo {
                     wish.setNote(resultSet.getString("note"));
                     wish.setLink(resultSet.getString("link"));
                     wish.setWishImg(resultSet.getString("wishImg"));
-                    wish.setWishListId(resultSet.getInt("wishlistId"));
+                    wish.setWishlistId(resultSet.getInt("wishlistId"));
                     wish.setPriority(resultSet.getBoolean("priority"));
 
                     System.out.println(wish.getTitle());
@@ -61,6 +61,46 @@ public class WishRepo {
         try(Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, wishId);
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateWish(Wish updatedWish) {
+        String sql = "UPDATE wish SET title = ?, price = ?, note = ?, link = ?, wishImg =?, priority=?, wishlistId=?";
+
+        try (Connection con = dataSource.getConnection();
+             PreparedStatement statement = con.prepareStatement(sql)) {
+            statement.setString(1, updatedWish.getTitle());
+            statement.setDouble(2, updatedWish.getPrice());
+            statement.setString(3, updatedWish.getNote());
+            statement.setString(4, updatedWish.getLink());
+            statement.setString(5, updatedWish.getWishImg());
+            statement.setBoolean(6, updatedWish.getPriority());
+            statement.setInt(7, updatedWish.getWishlistId());
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void save(Wish wish) {
+        String sql = "INSERT INTO wish(title, price, note, link, wishImg, priority, wishlistId)" +
+                "VALUES(?,?,?,?,?,?,?)";
+
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, wish.getTitle());
+            statement.setDouble(2, wish.getPrice());
+            statement.setString(3, wish.getNote());
+            statement.setString(4, wish.getLink());
+            statement.setString(5, wish.getWishImg());
+            statement.setBoolean(6, wish.getPriority());
+            statement.setInt(7, wish.getWishlistId());
+
             statement.executeUpdate();
 
         } catch (SQLException e) {

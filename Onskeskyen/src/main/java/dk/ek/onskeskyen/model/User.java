@@ -2,24 +2,24 @@ package dk.ek.onskeskyen.model;
 
 public class User {
 
+    private int userId;
     private String firstName;
     private String lastName;
-    private int userId;
     private String email;
     private String profilePicture;
     private String phoneNumber;
     private String password;
     private int age;
 
-    public User(String firstName, String lastName, int userId, String email, String phoneNumber, int age, String profilePicture, String password) {
+    public User(int userId, String firstName, String lastName, String email, String profilePicture, String phoneNumber, String password, int age) {
+        this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userId = userId;
         this.email = email;
-        this.phoneNumber = phoneNumber;
-        this.age = age;
-        this.password = password;
         this.profilePicture = profilePicture;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
+        this.age = age;
     }
 
     public User() {
@@ -30,6 +30,7 @@ public class User {
     }
 
     //GETTERS + SETTERS BELOW
+
 
     public String getPassword() {
         return password;
@@ -94,6 +95,4 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
-
 }
