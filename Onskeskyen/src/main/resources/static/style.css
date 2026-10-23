@@ -9,12 +9,18 @@ body {
 .container {
     max-width: 900px;
     margin: 0 auto;
+
 }
 /* alle links i container div*/
 .container a {
     color: black;
     font-weight: bold;
     text-decoration: none;
+}
+
+/* til login/oprette profil siderne */
+.ex1 {
+    margin-left: 50px;
 }
 
 .btn {
@@ -159,4 +165,15 @@ strong {
     .navbar ul {
         flex-wrap: wrap;
     }
+}
+
+/* Default billede ved oprettelse af profil*/
+
+.avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
 }

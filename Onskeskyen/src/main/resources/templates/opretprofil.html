@@ -11,7 +11,7 @@
 </head>
 
 <body>
-
+<div class="ex1">
 <div class = "container">
     <div class="headerArea">
         <nav class="navbar" style="margin-bottom: 10px;">
@@ -21,12 +21,13 @@
             </ul>
         </nav>
     </div>
+</div>
+
 
 <h2> Opret en profil </h2>
 
 <h4> Personlige oplysninger </h4>
 
-<form class="form" action="../../404.html">
 
     <Label for="fname"> Fornavn: </Label> <br>
     <input type="text" id="fname" required>
@@ -71,11 +72,14 @@
 
     <br>
     <br>
+
+    <img th:src="@{/img-profil/avatar1.png" alt="Profil" class="avatar">
+    <img th:src="@{/img-profil/avatar2.png}" alt="Profil" class="avatar">
+
+    <br>
     <br>
 
     <button type="submit">Opret profil</button>
-</form>
-
 
 <p>
     <br>
@@ -83,6 +87,7 @@
     <a href="login.html" > Log ind</a>
 </p>
 
+</div>
 </body>
 
 </html>
