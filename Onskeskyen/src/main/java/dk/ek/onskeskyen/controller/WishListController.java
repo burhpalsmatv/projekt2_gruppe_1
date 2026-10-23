@@ -16,7 +16,7 @@ public class WishListController {
             @RequestParam("wishListTitle") String wishlistTitle,
             @RequestParam("coverImg") String coverImg) {
 
-        wishlistService.createWishList(wishlistTitle, coverImg);
+        wishlistService.createWishList(wishlistTitle);
 
         return "/wishlist";
     }
