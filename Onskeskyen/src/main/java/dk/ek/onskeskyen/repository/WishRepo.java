@@ -1,6 +1,7 @@
 package dk.ek.onskeskyen.repository;
 
 import dk.ek.onskeskyen.model.Wish;
+import dk.ek.onskeskyen.model.Wishlist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -41,8 +42,6 @@ public class WishRepo {
                     wish.setWishListId(resultSet.getInt("wishlistId"));
                     wish.setPriority(resultSet.getBoolean("priority"));
 
-                    System.out.println(wish.getTitle());
-
                     listOfWishes.add(wish);
                 }
             }
@@ -67,4 +66,27 @@ public class WishRepo {
             e.printStackTrace();
         }
     }
+
+    public void save (Wish wish) {
+        String sql = "INSERT INTO wish(title, price, note, link, wishImg, priority, wishlistId)" +
+                "VALUES(?, ?, ?, ?, ?,?,?)";
+
+        try(Connection connection = dataSource.getConnection();
+            PreparedStatement statement = connection.prepareStatement(sql)) {
+
+            statement.setString(1, wish.getTitle());
+            statement.setDouble(2, wish.getPrice());
+            statement.setString(3, wish.getNote());
+            statement.setString(4, wish.getLink());
+            statement.setString(5, wish.getWishImg());
+            statement.setBoolean(6, wish.getPriority());
+            statement.setInt(7, wish.getWishListId());
+
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
