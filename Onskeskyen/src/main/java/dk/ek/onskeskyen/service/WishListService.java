@@ -1,17 +1,23 @@
-//package dk.ek.onskeskyen.service;
-//
-//import dk.ek.onskeskyen.model.Wishlist;
-//
-//import java.time.LocalDate;
-//
-//public class WishListService {
-//
-//    public Wishlist createWishList(String owner, LocalDate date, int wishListId, String coverImg) {
-//
-//        Wishlist wishlist = new Wishlist(owner, date, wishListId);
-//
-//        // Wishlist wishlistAfterSave = WishlistRepo.save()
-//
-//        return wishlist;
-//    }
-//}
+package dk.ek.onskeskyen.service;
+
+import dk.ek.onskeskyen.model.Wishlist;
+import dk.ek.onskeskyen.repository.WishlistRepo;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+
+@Service
+public class WishListService {
+
+    WishlistRepo wishlistRepo = new WishlistRepo(); // reference objekt
+
+    public Wishlist createWishList(int wishlistId, String wishlistTitle, String coverImg) {
+        Wishlist wishlist = new Wishlist(wishlistId, wishlistTitle, coverImg);
+        wishlistRepo.save(wishlist); // Gem i databaseg
+        return wishlist;
+    }
+
+    public void deleteWishlist() {
+
+    }
+}
