@@ -21,4 +21,17 @@ public class WishListController {
 
         return "/wishlist";
     }
+
+    @PostMapping ("/wishlist")
+    public String deleteWishlist(
+            @RequestParam int wishlistId,
+            @RequestParam int userId
+
+    ) {
+
+        wishlistService.deleteWishlist(wishlistId, userId);
+
+        return "/wishlist";
+
+    }
 }
