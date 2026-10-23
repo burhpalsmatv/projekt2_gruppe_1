@@ -8,15 +8,17 @@ public class User {
     private String email;
     private String profilePicture;
     private String phoneNumber;
+    private String password;
     private int age;
 
-    public User(String firstName, String lastName, int userId, String email, String phoneNumber, int age, String profilePicture) {
+    public User(String firstName, String lastName, int userId, String email, String phoneNumber, int age, String profilePicture, String password) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userId = userId;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.age = age;
+        this.password = password;
         this.profilePicture = profilePicture;
     }
 
@@ -29,6 +31,9 @@ public class User {
 
     //GETTERS + SETTERS BELOW
 
+    public String getPassword() {
+        return password;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -86,7 +91,9 @@ public class User {
         this.age = age;
     }
 
-
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
 
 }

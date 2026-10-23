@@ -38,6 +38,7 @@ create table users
     age            int          not null,
     email          varchar(500) not null,
     phoneNum       int          not null,
+    password       varchar(250) not null,
     profilePicture varchar(1000),
 
     constraint fk_userWishlistId
@@ -54,11 +55,11 @@ VALUES ('Cykel', 500, 1),
        ('Kingston 32GB DDR5 ram', 4999, 1),
        ('Mad (jeg er sulten)', 500, 1);
 
-INSERT INTO users (userWishlistId, firstName, lastName, age, email, phoneNum)
-VALUES (1, 'Mateusz', 'Filipowski', 26, 'mateuszfilipowski00@gmail.com', 50230646);
+INSERT INTO users (userWishlistId, firstName, lastName, age, email, phoneNum, password)
+VALUES (1, 'Mateusz', 'Filipowski', 26, 'mateuszfilipowski00@gmail.com', 50230646, 'Poul');
 
 insert into wishlist (wishlistTitle)
-values('første ønskeliste');
+values ('første ønskeliste');
 
 
 
