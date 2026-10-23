@@ -10,19 +10,20 @@ create table users
     age            int          not null,
     email          varchar(500) not null,
     phoneNum       int          not null,
+    password       varchar(250) not null,
     profilePicture varchar(1000)
 );
 
 create table wishlist
 (
-    wishlistId    int auto_increment primary key,
+    wishlistId     int auto_increment primary key,
     userWishlistId int,
-    wishlistTitle varchar(500),
-    coverImg      varchar(1000),
+    wishlistTitle  varchar(500),
+    coverImg       varchar(1000),
 
     constraint fk_userWishListId
         foreign key (userWishlistId)
-            references users(userId)
+            references users (userId)
 
 );
 
@@ -35,11 +36,9 @@ create table wish
     link       varchar(250),
     wishImg    varchar(250),
     priority   boolean,
-    wishlistId int not null
+    wishlistId int          not null
 
 );
-
-
 
 
 
@@ -52,8 +51,8 @@ VALUES ('Cykel', 500, 1),
        ('Kingston 32GB DDR5 ram', 4999, 1),
        ('Mad (jeg er sulten)', 500, 1);
 
-INSERT INTO users (firstName, lastName, age, email, phoneNum)
-VALUES ('Mateusz', 'Filipowski', 26, 'mateuszfilipowski00@gmail.com', 50230646);
+INSERT INTO users (firstName, lastName, age, email, phoneNum, password)
+VALUES ('Mateusz', 'Filipowski', 26, 'mateuszfilipowski00@gmail.com', 50230646, 'Poul');
 
 insert into wishlist (wishlistTitle, userWishListId)
-values('første ønskeliste', 1);
+values ('første ønskeliste', 1);

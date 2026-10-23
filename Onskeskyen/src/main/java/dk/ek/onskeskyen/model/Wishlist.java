@@ -5,13 +5,20 @@ import java.util.ArrayList;
 
 public class Wishlist {
     private int wishlistId;
+    private int userWishlistId;
     private String wishlistTitle;
     private String coverImg;
-    private LocalDate date;
 
     public Wishlist(String wishlistTitle) {
         this.wishlistTitle = wishlistTitle;
         this.coverImg = "defaultcoverimg";
+    }
+
+    public Wishlist(int wishlistId, int userWishlistId, String wishlistTitle, String coverImg) {
+        this.wishlistId = wishlistId;
+        this.userWishlistId = userWishlistId;
+        this.wishlistTitle = wishlistTitle;
+        this.coverImg = coverImg;
     }
 
     // Muligvis slet senere
@@ -30,6 +37,10 @@ public class Wishlist {
     // Tom Constructor
     public Wishlist() {}
 
+    public int getUserWishlistId() {
+        return userWishlistId;
+    }
+
     // Getters
     public int getWishlistId() {
         return wishlistId;
@@ -43,13 +54,13 @@ public class Wishlist {
         return coverImg;
     }
 
-    public LocalDate getDate() {
-        return this.date;
-    }
-
     // Setters
     public void setWishlistId(int wishlistId) {
         this.wishlistId = wishlistId;
+    }
+
+    public void setUserWishlistId(int userWishlistId) {
+        this.userWishlistId = userWishlistId;
     }
 
     public void setWishlistTitle(String wishlistTitle) {
@@ -58,10 +69,6 @@ public class Wishlist {
 
     public void setCoverImg(String coverImg) {
         this.coverImg = coverImg;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
     }
 
     @Override

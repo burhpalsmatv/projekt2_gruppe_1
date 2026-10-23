@@ -1,5 +1,6 @@
 package dk.ek.onskeskyen.repository;
 
+import dk.ek.onskeskyen.model.User;
 import dk.ek.onskeskyen.model.Wish;
 import dk.ek.onskeskyen.model.Wishlist;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,7 @@ public class WishlistRepo {
             while (resultSet.next()) {
                 Wishlist wishlist = new Wishlist();
                 wishlist.setWishlistId(resultSet.getInt("wishlistId"));
+                wishlist.setUserWishlistId(resultSet.getInt("userWishlistId"));
                 wishlist.setWishlistTitle(resultSet.getString("wishlistTitle"));
                 wishlist.setCoverImg(resultSet.getString("coverImg"));
                 listOfWishlist.add(wishlist);
@@ -52,6 +54,7 @@ public class WishlistRepo {
 
             if (resultSet.next()) {
                 wishlist.setWishlistId(resultSet.getInt("wishlistId"));
+                wishlist.setUserWishlistId(resultSet.getInt("userWishlistId"));
                 wishlist.setWishlistTitle(resultSet.getString("wishlistTitle"));
                 wishlist.setCoverImg(resultSet.getString("coverImg"));
             }
@@ -63,17 +66,17 @@ public class WishlistRepo {
     }
 
 
-    public void deleteWishList(int wishlistId, int userId) { // userId
-        String sql = "DELETE FROM wishlist WHERE wishlistId = ? AND userId = ?";
+    public void deleteWishList(int wishlistId, int userWishlistId) { // userId
+        String sql = "DELETE FROM wishlist WHERE wishlistId = ? AND userWishlistId = ?";
         // Eventuelt find et bedre lag, hvor man tjekker om useren har adgang til denne wishlist
         // -- DET ER FOR AT SØRGE FOR AT USERS IKKE KAN SLETTE WISHLISTS DE IKKE SELV EJER --
         // Lige nu tjekkes det kun i "WHERE wishlistId = ? and userid = ?"
         // "userId = ?"
 
-        try(Connection connection = dataSource.getConnection();
-            PreparedStatement statement = connection.prepareStatement(sql)) {
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, wishlistId);
-            statement.setInt(2, userId);
+            statement.setInt(2, userWishlistId);
 
             statement.executeUpdate();
 
@@ -83,13 +86,13 @@ public class WishlistRepo {
 
     }
 
-    public void save (Wishlist wishlist) {
-        String sql = "INSERT INTO wishlist(wishlistTitle, coverImg)" +
+    public void save(Wishlist wishlist) {
+        String sql = "INSERT INTO wishlist(userWishlistId, wishlistTitle, coverImg)" +
                 "VALUES(?,?, ?)";
 
-        try(Connection connection = dataSource.getConnection();
-            PreparedStatement statement = connection.prepareStatement(sql)) {
-
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setInt(1, wishlist.getUserWishlistId());
             statement.setString(2, wishlist.getWishlistTitle());
             statement.setString(3, wishlist.getCoverImg());
 
@@ -100,6 +103,19 @@ public class WishlistRepo {
         }
     }
 
+    public void updateWishlist(Wishlist updatedWishlist) {
+        String sql = "UPDATE wishlist SET userWishlistId = ?, wishlistTitle = ?, coverImg = ?";
 
+        try (Connection con = dataSource.getConnection();
+             PreparedStatement statement = con.prepareStatement(sql)) {
+            statement.setInt(1, updatedWishlist.getUserWishlistId());
+            statement.setString(2, updatedWishlist.getWishlistTitle());
+            statement.setString(3, updatedWishlist.getCoverImg());
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
