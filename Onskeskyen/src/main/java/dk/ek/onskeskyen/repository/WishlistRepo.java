@@ -84,13 +84,12 @@ public class WishlistRepo {
     }
 
     public void save (Wishlist wishlist) {
-        String sql = "INSERT INTO wishlist(wishlistId, wishlistTitle, coverImg)" +
+        String sql = "INSERT INTO wishlist(wishlistTitle, coverImg)" +
                 "VALUES(?,?, ?)";
 
         try(Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql)) {
 
-            statement.setInt(1, wishlist.getWishlistId());
             statement.setString(2, wishlist.getWishlistTitle());
             statement.setString(3, wishlist.getCoverImg());
 
