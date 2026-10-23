@@ -41,8 +41,6 @@ public class WishRepo {
                     wish.setWishlistId(resultSet.getInt("wishlistId"));
                     wish.setPriority(resultSet.getBoolean("priority"));
 
-                    System.out.println(wish.getTitle());
-
                     listOfWishes.add(wish);
                 }
             }
