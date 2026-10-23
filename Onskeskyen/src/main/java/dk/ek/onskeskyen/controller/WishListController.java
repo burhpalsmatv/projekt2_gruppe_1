@@ -11,21 +11,21 @@ public class WishListController {
 
     private WishListService wishlistService;
 
-    @PostMapping ("/wishlist")
+    @PostMapping ("/createWishlist")
     public String createWishlist(
-            @RequestParam int wishlistId,
-            @RequestParam String wishlistTitle,
-            @RequestParam String coverImg) {
+            @RequestParam("wishListId") int wishlistId,
+            @RequestParam("wishListTitle") String wishlistTitle,
+            @RequestParam("coverImg") String coverImg) {
 
         wishlistService.createWishList(wishlistId, wishlistTitle, coverImg);
 
         return "/wishlist";
     }
 
-    @PostMapping ("/wishlist")
+    @PostMapping ("/deleteWishlist")
     public String deleteWishlist(
-            @RequestParam int wishlistId,
-            @RequestParam int userId
+            @RequestParam("wishListId") int wishlistId,
+            @RequestParam("userId") int userId
 
     ) {
 
