@@ -38,11 +38,12 @@ public class UserController {
             @RequestParam("email") String email,
             @RequestParam("phoneNumber") String phoneNumber,
             @RequestParam("age") int age,
+            @RequestParam("password") String password,
             @RequestParam("profilePicture") String profilePicture){
 
         String img = userService.getImg(profilePicture);
 
-        User user = new User(firstName, lastName, userId, email, phoneNumber, age, img);
+        User user = new User(firstName, lastName, userId, email, phoneNumber, age, img, password);
         userRepo.saveUser(user);
         return "redirect:/";
     }
