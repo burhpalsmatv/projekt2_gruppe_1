@@ -8,13 +8,25 @@ public class Wishlist {
     private String wishlistTitle;
     private String coverImg;
 
+    public Wishlist(String wishlistTitle) {
+        this.wishlistTitle = wishlistTitle;
+        this.coverImg = "defaultcoverimg";
+    }
+
+    // Muligvis slet senere
+    public Wishlist(String wishlistTitle, String coverImg) {
+        this.wishlistTitle = wishlistTitle;
+        this.coverImg = coverImg;
+    }
+
+    // Muligvis slet senere
     public Wishlist(int wishlistId, String wishlistTitle, String coverImg) {
         this.wishlistId = wishlistId;
         this.wishlistTitle = wishlistTitle;
         this.coverImg = coverImg;
     }
 
-    public Wishlist(){}
+    public Wishlist() {}
 
     public int getWishlistId() {
         return wishlistId;

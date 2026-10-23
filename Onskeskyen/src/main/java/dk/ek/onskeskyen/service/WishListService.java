@@ -11,8 +11,8 @@ public class WishListService {
 
     WishlistRepo wishlistRepo = new WishlistRepo(); // reference objekt
 
-    public Wishlist createWishList(int wishlistId, String wishlistTitle, String coverImg) {
-        Wishlist wishlist = new Wishlist(wishlistId, wishlistTitle, coverImg);
+    public Wishlist createWishList(String wishlistTitle) {
+        Wishlist wishlist = new Wishlist(wishlistTitle);
         wishlistRepo.save(wishlist); // Gem i databaseg
         return wishlist;
     }
