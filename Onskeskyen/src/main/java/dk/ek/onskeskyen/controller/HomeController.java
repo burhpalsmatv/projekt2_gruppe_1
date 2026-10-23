@@ -30,6 +30,7 @@ public class HomeController {
     public String getWishlist(Model model) {
         List<Wishlist> listOfWishlist = wishlistRepo.getAllWishlists();
         model.addAttribute("listOfWishlist", listOfWishlist);
+
         return "wishlist";
     }
 
@@ -37,6 +38,7 @@ public class HomeController {
     public String getWishes(Model model, @RequestParam("wishListId") int wishListId) {
         List<Wish> listOfWishes = wishRepo.getAllWishes(wishListId);
         model.addAttribute("listOfWishes", listOfWishes);
+        model.addAttribute("wishListId", wishListId);
         return "wishes";
     }
 }
