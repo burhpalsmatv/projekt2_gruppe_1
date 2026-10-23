@@ -4,17 +4,28 @@ public class Wish {
     private int wishId;
     private String title;
     private double price;
-    private String wishImg;
-    private String link;
     private String note;
-    private int wishListId;
+    private String link;
+    private String wishImg;
     private boolean priority = false;
+    private int wishlistId;
 
 
     public Wish(String title, double price, String link) {
         this.title = title;
         this.price = price;
         this.link = link;
+    }
+
+    public Wish(int wishId, String title, double price, String note, String link, String wishImg, boolean priority, int wishListId) {
+        this.wishId = wishId;
+        this.title = title;
+        this.price = price;
+        this.note = note;
+        this.link = link;
+        this.wishImg = wishImg;
+        this.priority = priority;
+        this.wishlistId = wishListId;
     }
 
     public Wish(){}
@@ -33,12 +44,12 @@ public class Wish {
         this.wishId = wishId;
     }
 
-    public void setWishListId(int wishListId){
-        this.wishListId = wishListId;
+    public void setWishlistId(int wishlistId){
+        this.wishlistId = wishlistId;
     }
 
-    public int getWishListId(){
-        return wishListId;
+    public int getWishlistId(){
+        return wishlistId;
     }
 
     public void setTitle(String title) {
@@ -90,6 +101,10 @@ public class Wish {
     }
 
     public boolean getPriority() {
+        return priority;
+    }
+
+    public boolean isPriority() {
         return priority;
     }
 

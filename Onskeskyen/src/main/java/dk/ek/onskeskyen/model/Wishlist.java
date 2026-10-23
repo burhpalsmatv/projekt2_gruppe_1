@@ -5,17 +5,43 @@ import java.util.ArrayList;
 
 public class Wishlist {
     private int wishlistId;
+    private int userWishlistId;
     private String wishlistTitle;
     private String coverImg;
 
+    public Wishlist(String wishlistTitle) {
+        this.wishlistTitle = wishlistTitle;
+        this.coverImg = "defaultcoverimg";
+    }
+
+    public Wishlist(int wishlistId, int userWishlistId, String wishlistTitle, String coverImg) {
+        this.wishlistId = wishlistId;
+        this.userWishlistId = userWishlistId;
+        this.wishlistTitle = wishlistTitle;
+        this.coverImg = coverImg;
+    }
+
+    // Muligvis slet senere
+    public Wishlist(String wishlistTitle, String coverImg) {
+        this.wishlistTitle = wishlistTitle;
+        this.coverImg = coverImg;
+    }
+
+    // Muligvis slet senere
     public Wishlist(int wishlistId, String wishlistTitle, String coverImg) {
         this.wishlistId = wishlistId;
         this.wishlistTitle = wishlistTitle;
         this.coverImg = coverImg;
     }
 
-    public Wishlist(){}
+    // Tom Constructor
+    public Wishlist() {}
 
+    public int getUserWishlistId() {
+        return userWishlistId;
+    }
+
+    // Getters
     public int getWishlistId() {
         return wishlistId;
     }
@@ -28,8 +54,13 @@ public class Wishlist {
         return coverImg;
     }
 
+    // Setters
     public void setWishlistId(int wishlistId) {
         this.wishlistId = wishlistId;
+    }
+
+    public void setUserWishlistId(int userWishlistId) {
+        this.userWishlistId = userWishlistId;
     }
 
     public void setWishlistTitle(String wishlistTitle) {

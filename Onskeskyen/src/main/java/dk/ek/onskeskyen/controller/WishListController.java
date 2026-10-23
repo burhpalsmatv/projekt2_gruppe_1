@@ -13,11 +13,10 @@ public class WishListController {
 
     @PostMapping ("/createWishlist")
     public String createWishlist(
-            @RequestParam("wishListId") int wishlistId,
             @RequestParam("wishListTitle") String wishlistTitle,
             @RequestParam("coverImg") String coverImg) {
 
-        wishlistService.createWishList(wishlistId, wishlistTitle, coverImg);
+        wishlistService.createWishList(wishlistTitle);
 
         return "/wishlist";
     }

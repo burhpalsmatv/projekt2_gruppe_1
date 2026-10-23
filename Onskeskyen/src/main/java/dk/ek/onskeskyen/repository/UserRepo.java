@@ -49,7 +49,7 @@ public class UserRepo {
 
 
     public void deleteUser(int userId) {
-        String sql = "DELETE * FROM users WHERE userId = ?";
+        String sql = "DELETE FROM users WHERE userId = ?";
 
         try(Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -68,7 +68,6 @@ public class UserRepo {
 
         try(Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql)) {
-
             statement.setString(1, user.getFirstName());
             statement.setString(2, user.getLastName());
             statement.setInt(3, user.getUserId());
@@ -78,6 +77,25 @@ public class UserRepo {
             statement.setString(7, user.getProfilePicture());
 
 
+            statement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateUser(User updatedUser) {
+        String sql = "UPDATE users SET firstName = ?, lastName = ?, age = ?, email = ?, phoneNum = ?, password = ?, profilePicture = ? WHERE userId = ?";
+
+        try (Connection con = dataSource.getConnection();
+             PreparedStatement statement = con.prepareStatement(sql)) {
+            statement.setString(1, updatedUser.getFirstName());
+            statement.setString(2, updatedUser.getLastName());
+            statement.setInt(3, updatedUser.getAge());
+            statement.setString(4, updatedUser.getEmail());
+            statement.setString(5, updatedUser.getPhoneNumber());
+            statement.setString(6, updatedUser.getPassword());
+            statement.setString(7, updatedUser.getProfilePicture());
             statement.executeUpdate();
 
         } catch (SQLException e) {
