@@ -43,7 +43,7 @@ public class UserController {
 
         String img = userService.getImg(profilePicture);
 
-        User user = new User(firstName, lastName, userId, email, phoneNumber, age, img, password);
+        User user = new User(userId, firstName, lastName, email, profilePicture, phoneNumber, password, age);
         userRepo.saveUser(user);
         return "redirect:/";
     }
