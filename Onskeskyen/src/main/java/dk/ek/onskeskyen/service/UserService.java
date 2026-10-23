@@ -16,6 +16,10 @@ public class UserService {
             img = "YellowPicture.png";
         } else if (profilePicture.contains("orange")) {
             img = "OrangePicture.png";
+        } else if (profilePicture.contains("avatar1")) {
+            img = "avatar1.png";
+        } else if (profilePicture.contains("avatar2")) {
+            img = "avatar2.png";
         }
         return img;
     }
