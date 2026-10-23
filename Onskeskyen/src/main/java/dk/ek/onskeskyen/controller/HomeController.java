@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -16,6 +17,8 @@ public class HomeController {
 
     @Autowired
     WishlistRepo wishlistRepo;
+
+    @Autowired
     WishRepo wishRepo;
 
     @GetMapping("/index")
@@ -30,9 +33,9 @@ public class HomeController {
         return "wishlist";
     }
 
-    @GetMapping("/wishes")
-    public String getWishes(Model model) {
-        List<Wish> listOfWishes = wishRepo.getAllWishes();
+    @GetMapping("/getWishes")
+    public String getWishes(Model model, @RequestParam("wishListId") int wishListId) {
+        List<Wish> listOfWishes = wishRepo.getAllWishes(wishListId);
         model.addAttribute("listOfWishes", listOfWishes);
         return "wishes";
     }

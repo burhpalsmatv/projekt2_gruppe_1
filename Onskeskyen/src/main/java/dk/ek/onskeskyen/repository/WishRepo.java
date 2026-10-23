@@ -18,29 +18,33 @@ public class WishRepo {
     @Autowired
     protected DataSource dataSource;
 
-    public ArrayList<Wish> getAllWishes() {
+
+    public ArrayList<Wish> getAllWishes(int wishListId) {
         ArrayList<Wish> listOfWishes = new ArrayList<>();
-        String sql = "SELECT * FROM wish";
+        String sql = "SELECT * FROM wish WHERE wishlistId = ?";
 
         try (Connection con = dataSource.getConnection();
-             PreparedStatement statement = con.prepareStatement(sql);
-             ResultSet resultSet = statement.executeQuery()) {
+             PreparedStatement statement = con.prepareStatement(sql)) {
 
-            while (resultSet.next()) {
-                Wish wish = new Wish();
-                wish.setWishId(resultSet.getInt("wishId"));
-                wish.setTitle(resultSet.getString("title"));
-                wish.setPrice(resultSet.getDouble("price"));
-                wish.setNote(resultSet.getString("note"));
-                wish.setLink(resultSet.getString("link"));
-                wish.setWishImg(resultSet.getString("wishImg"));
-                wish.setWishListId(resultSet.getInt("wishListId"));
-                if (resultSet.getInt("priority") == 1) {
-                    wish.setPriority(true);
-                } else {
-                    wish.setPriority(false);
+            statement.setInt(1, wishListId);
+
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    Wish wish = new Wish();
+
+                    wish.setWishId(resultSet.getInt("wishId"));
+                    wish.setTitle(resultSet.getString("title"));
+                    wish.setPrice(resultSet.getDouble("price"));
+                    wish.setNote(resultSet.getString("note"));
+                    wish.setLink(resultSet.getString("link"));
+                    wish.setWishImg(resultSet.getString("wishImg"));
+                    wish.setWishListId(resultSet.getInt("wishlistId"));
+                    wish.setPriority(resultSet.getBoolean("priority"));
+
+                    System.out.println(wish.getTitle());
+
+                    listOfWishes.add(wish);
                 }
-                listOfWishes.add(wish);
             }
 
         } catch (SQLException e) {
@@ -49,6 +53,7 @@ public class WishRepo {
 
         return listOfWishes;
     }
+
 
     public void deleteWish(int wishId) {
         String sql = "DELETE FROM wish WHERE wishId = ?";
