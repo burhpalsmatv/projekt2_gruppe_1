@@ -4,12 +4,23 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title> ØnskeÆsken </title>
-    <link rel="stylesheet" th:href="@{style.css}">
+    <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
 
 </head>
 
 <body>
+
+<div class = "container">
+    <div class="headerArea">
+        <nav class="navbar" style="margin-bottom: 10px;">
+            <ul>
+                <li><a th:href="@{#}">Home</a></li>
+                <li><a th:href="@{/wishlist}">Ønskelister</a></li>
+            </ul>
+        </nav>
+    </div>
 
 <h2> Opret en profil </h2>
 
@@ -60,14 +71,16 @@
 
     <br>
     <br>
+    <br>
 
     <button type="submit">Opret profil</button>
 </form>
 
 
 <p>
+    <br>
     Har du allerede en profil?
-    <a href="Login.html" > Log ind</a>
+    <a href="login.html" > Log ind</a>
 </p>
 
 </body>
