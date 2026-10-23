@@ -1,6 +1,10 @@
 
 package dk.ek.onskeskyen.controller;
 
+import dk.ek.onskeskyen.model.Wish;
+import dk.ek.onskeskyen.model.Wishlist;
+import dk.ek.onskeskyen.repository.WishRepo;
+import dk.ek.onskeskyen.repository.WishlistRepo;
 import dk.ek.onskeskyen.service.WishService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,11 +13,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
+
+
+
 @Controller
 public class WishController {
 
     @Autowired
     WishService wishService;
+
+    @Autowired
+    WishlistRepo wishlistRepo;
 
     @GetMapping("/getCreateWish")
     public String createWish(
@@ -21,7 +32,7 @@ public class WishController {
             Model model) {
 
         model.addAttribute("wishListId", wishListId);
-        return "redirect:/createWish?wishListId=" + wishListId;
+        return "createWish";
     }
 
     @PostMapping("/postCreateWish")
