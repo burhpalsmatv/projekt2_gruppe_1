@@ -17,6 +17,11 @@ body {
     text-decoration: none;
 }
 
+.btn {
+    max-width: 50px;
+    margin: 0 auto;
+}
+
 /*hvis der skal billede/video som header kan det indsættes her med en .header video*/
 .header {
     width: 100%;

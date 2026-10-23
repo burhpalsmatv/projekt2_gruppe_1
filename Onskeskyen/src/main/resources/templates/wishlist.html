@@ -24,10 +24,13 @@
     <div class="flex">
         <main>
             <div class="wishBox" th:each="wishlist : ${listOfWishlist}">
-                <div>
+                <a th:href="@{/getWishes(wishListId=${wishlist.wishlistId})}" class="btn"><div>
                     <label>Titel</label>
                     <span th:text="${wishlist.wishlistTitle}">title</span>
-                </div>
+
+                </div></a>
+
+
             </div>
         </main>
     </div>

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Valdemar er en taeber</title>
-  <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
+  <link rel="stylesheet" th:href="@{style.css}">
 </head>
 
 <body>
@@ -41,6 +41,11 @@
           <label>Prioteret ønske:</label>
           <span th:text="${wish.priority}">Prioteret ønske</span>
         </div>
+        <div>
+          <label>Ønske liste nr:</label>
+          <span th:text="${wish.getWishListId()}">Wishlist</span>
+        </div>
+
       </div>
     </main>
   </div>
