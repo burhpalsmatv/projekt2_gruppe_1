@@ -12,7 +12,7 @@ public class WishService {
     WishRepo wishRepo;
 
     public Wish createWish(String title, double price, String note, String link, String wishImg, boolean priority, int wishListId) {
-        Wish wish = new Wish(title, price, note, link, wishImg, wishListId, priority);
+        Wish wish = new Wish(title, price, note, link, wishImg, priority, wishListId);
         wishRepo.save(wish);
         return wish;
     }

@@ -27,19 +27,27 @@
         <img th:src="@{'/img/' + ${wish.wishImg}}" alt="wish image"/>
         <div>
           <label>Titel:</label>
-          <span th:text="${wish.title}">Titel</span>
+          <span th:text="${wish.getTitle()}">Titel</span>
         </div>
         <div>
-          <label>Pris test:</label>
-          <span th:text="${wish.price}">Pris</span>
+          <label>Pris:</label>
+          <span th:text="${wish.getPrice()}">Pris</span>
         </div>
         <div>
           <label>Note:</label>
-          <span th:text="${wish.link}">Link</span>
+          <span th:text="${wish.getNote()}">Note</span>
+        </div>
+        <div>
+          <label>Link:</label>
+          <span th:text="${wish.getLink()}">Link</span>
+        </div>
+        <div>
+          <label>Billede:</label>
+          <span th:text="${wish.getWishImg()}">Billede</span>
         </div>
         <div>
           <label>Prioteret ønske:</label>
-          <span th:text="${wish.priority}">Prioteret ønske</span>
+          <span th:text="${wish.getPriority()}">Prioteret ønske</span>
         </div>
         <div>
           <label>Ønske liste nr:</label>
