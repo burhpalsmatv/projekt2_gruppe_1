@@ -38,9 +38,11 @@ public class WishController {
     @GetMapping("/getEditWish")
     public String editWish(
             @RequestParam("wishId") int wishId,
+            @RequestParam("wishListId") int wishListId,
             Model model) {
 
         model.addAttribute("wishId", wishId);
+        model.addAttribute("wishListId", wishListId);
         return "editWish";
     }
 

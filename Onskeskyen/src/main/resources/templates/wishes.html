@@ -77,7 +77,7 @@
           <span th:text="${wish.getWishlistId()}">Wishlist</span>
         </div>
         <div>
-          <a class="btn" th:href="@{/getEditWish(wishId=${wish.getWishId()})}">
+          <a class="btn" th:href="@{/getEditWish(wishId=${wish.getWishId()}, wishListId=${wish.getWishlistId()})}">
             Edit
           </a>
         </div>
