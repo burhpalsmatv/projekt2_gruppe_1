@@ -66,7 +66,7 @@ public class WishRepo {
         }
     }
 
-    public void updateWish(int wishId, String title, double price, String note, String link, String wishImg, boolean priority) {
+    public void updateWish(int wishId, String title, double price, String note, String link, String wishImg, boolean priority, int wishlistId) {
 
         String sql1 = "SELECT title, price, note, link, wishImg, priority FROM wish WHERE wishId = ? FOR UPDATE";
         String sql2 = "UPDATE wish SET title = ?, price = ?, note = ?, link = ?, wishImg =?, priority=? WHERE wishId = ?";

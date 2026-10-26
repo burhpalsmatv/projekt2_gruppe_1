@@ -17,8 +17,8 @@ public class WishService {
         return wish;
     }
 
-    public void editWish(int wishId, String title, double price, String note, String link, String wishImg, boolean priority) {
+    public void editWish(int wishId, String title, double price, String note, String link, String wishImg, boolean priority, int wishlistId) {
         System.out.println("Edit wish: " + title);
-        wishRepo.updateWish(wishId, title, price, note, link, wishImg, priority);
+        wishRepo.updateWish(wishId, title, price, note, link, wishImg, priority, wishlistId);
     }
 }
