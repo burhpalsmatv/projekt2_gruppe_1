@@ -9,8 +9,9 @@
 }
 
 @font-face {
-    font-family: Glyce;
+    font-family: GlyceRegular;
     src: url("../static/font/GlyceRegular-9M7DB.otf");
+    src: url("../static/font/GlyceRegular-9M7DB.woff")
 }
 
 
@@ -70,7 +71,7 @@ body {
     background-color: var(--color-7);
     background-size: 65px;
     color: black;
-    font-family: Glyce;
+    font-family: GlyceRegular;
 }
 
 /* container bruges til at wrappe hele hjemmesiden */
