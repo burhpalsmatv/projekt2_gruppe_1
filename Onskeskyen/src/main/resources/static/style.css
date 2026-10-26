@@ -211,3 +211,8 @@ strong {
     object-fit: cover;
     cursor: pointer;
 }
+
+section {
+    margin-bottom: 40px;
+    padding-top: 10px;
+}
