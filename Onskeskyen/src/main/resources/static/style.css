@@ -8,6 +8,12 @@
     --color-7: #EFE4D2;
 }
 
+@font-face {
+    font-family: Glyce;
+    src: url("../static/font/GlyceRegular-9M7DB.otf");
+}
+
+
 .boxSmall {
     border-style: solid;
     border-width: 2px;
@@ -60,11 +66,11 @@
 }
 
 body {
-    font-family: Helvetica, sans-serif;
     margin: 0;
     background-color: var(--color-7);
     background-size: 65px;
     color: black;
+    font-family: Glyce;
 }
 
 /* container bruges til at wrappe hele hjemmesiden */
