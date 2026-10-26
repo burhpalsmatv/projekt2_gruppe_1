@@ -38,9 +38,11 @@ public class WishController {
     @GetMapping("/getEditWish")
     public String editWish(
             @RequestParam("wishId") int wishId,
+            @RequestParam("wishListId") int wishListId,
             Model model) {
 
         model.addAttribute("wishId", wishId);
+        model.addAttribute("wishListId", wishListId);
         return "editWish";
     }
 
@@ -70,12 +72,13 @@ public class WishController {
             @RequestParam(value = "link", required = false) String link,
             @RequestParam(value = "wishImg", required = false) String wishImg,
             @RequestParam(value = "priority", defaultValue = "false") boolean priority,
-            @RequestParam("wishId") int wishId) {
+            @RequestParam("wishId") int wishId,
+            @RequestParam("wishListId") int wishListId) {
 
         wishService.editWish(
-                wishId, title, price, note, link, wishImg, priority
+                wishId, title, price, note, link, wishImg, priority, wishListId
         );
 
-        return "redirect:/";
+        return "redirect:/getWishes?wishListId=" + wishListId;
     }
 }
