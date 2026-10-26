@@ -75,8 +75,7 @@ public class WishRepo {
             try {
                 con.setAutoCommit(false);
                 PreparedStatement ps1 = con.prepareStatement(sql1);
-                //TODO REMOVE
-                System.out.println("Wish ID WHEN EDIT" + wishId);
+
                 ps1.setInt(1, wishId);
                 ResultSet rs = ps1.executeQuery();
                 con.commit();

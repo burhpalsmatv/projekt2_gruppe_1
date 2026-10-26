@@ -76,7 +76,7 @@
           <label>Ønske liste nr:</label>
           <span th:text="${wish.getWishlistId()}">Wishlist</span>
         </div>
-        <div>
+        <div> <!-- giv wishId og wishlistId videre til getEditWish i wishController -->
           <a class="btn" th:href="@{/getEditWish(wishId=${wish.getWishId()}, wishListId=${wish.getWishlistId()})}">
             Edit
           </a>
