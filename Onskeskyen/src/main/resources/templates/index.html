@@ -10,18 +10,44 @@
 </head>
 
 <body>
-<div class = "container">
-<div class="headerArea">
-    <nav class="navbar" style="margin-bottom: 10px;">
-        <ul>
-            <li><a th:href="@{#}">Forside</a></li>
-            <li><a th:href="@{/wishlist}">Ønskelister</a></li>
-        </ul>
-    </nav>
+<div id="header-container">
+    <header>
+        <div id="header-left">
+            <a id="header-logo" th:href="@{/}">
+              <img th:src="@{/defaultImages/logo.png}">
+            </a>
+
+            <a class="header-link" href="../templates/omos.html">Om Os</a>
+            <a class="header-link" href="../templates/wishlist.html">ØnskeLister</a>
+        </div>
+
+        <div id="header-right">
+            <!-- Log ind -->
+            <div class="header-button">
+                <a href="../templates/login.html" class="button">
+                    Log ind
+                </a>
+                </label>
+
+            </div>
+
+            <!-- Opret profil -->
+            <div class="header-button">
+                <a href="../templates/opretprofil.html" class="button">
+                    Opret profil
+                </a>
+                </label>
+
+            </div>
+        </div>
+    </header>
 </div>
+
+<br><br>
 
 <div class="flex">
     <main>
+        <br><br>
         <h1>ØnskeÆsken</h1>
         <p><strong>ØnskeÆsken – Vi hjælper dig med samle dine ønsker.</strong></p>
 
@@ -30,20 +56,6 @@
         <a th:href="@{/omos}">Test href --> om os</a>
     </main>
 </div>
-</div>
-
-<!-- Opret profil -->
-    <div class="header-button">
-        <a href="../templates/opretprofil.html" class="button">
-            Opret profil
-        </a>
-    </div>
-
-<!--CHEWING CAT FEEL FREE TO DELETE-->
-<div class="fixed-bottom pb-2" style="left:inherit;bottom:1%;">
-    <img src="https://media1.tenor.com/m/lLe8JH5FbhkAAAAd/anime.gif" class="fa-bounce tooltipster hidden-sm-down fr-fic fr-dii" alt="pagedoll" style="animation-duration: 1s; max-width: 2000px;" width="260" >
-</div>
-
 
 </body>
 

@@ -33,13 +33,22 @@ a {
     font-family: "Cabin", "Segoe UI", "Calibri", sans-serif;
 }
 
+
 header {
-    height: 4rem;
-    padding: .69rem 1.20rem;
+    min-height: 5rem;
+    padding: 0 1.2rem;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
     max-width: 96rem;
     margin: 0 auto;
-    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+#header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 #header-left {
@@ -47,10 +56,8 @@ header {
     align-items: center;
 }
 
-#header-right {
-    display: flex;
-    align-items: center;
-    flex-direction: row-reverse;
+.header-button {
+    margin: 0;
 }
 
 #header-logo {
@@ -71,10 +78,6 @@ header {
 
 .header-link:hover {
     color: var(--color-1);
-}
-
-.header-button {
-    margin: .5rem;
 }
 
 
