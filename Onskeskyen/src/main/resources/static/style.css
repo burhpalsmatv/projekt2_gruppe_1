@@ -21,11 +21,37 @@ body {
 /* til login/oprette profil siderne */
 .ex1 {
     margin-left: 50px;
+    text-align: center;
+
 }
 
 .btn {
     max-width: 50px;
     margin: 0 auto;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+}
+
+.form-section h3 {
+    margin-bottom: 20px;
+}
+
+.form-section input {
+    width: 200px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
 /*hvis der skal billede/video som header kan det indsættes her med en .header video*/
