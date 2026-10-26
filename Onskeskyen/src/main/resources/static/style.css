@@ -71,7 +71,7 @@ body {
     background-color: var(--color-7);
     background-size: 65px;
     color: black;
-    font-family: GlyceRegular;
+    font-family: GlyceRegular, sans-serif;
 }
 
 /* container bruges til at wrappe hele hjemmesiden */
