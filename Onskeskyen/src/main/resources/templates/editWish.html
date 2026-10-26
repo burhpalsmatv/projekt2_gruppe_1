@@ -1,0 +1,42 @@
+<!-- create.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rediger ønske</title>
+    <link rel="stylesheet" href="../static/style.css" th:href="@{styletest.css}">
+</head>
+<body>
+<div class="container">
+    <div class="form-container">
+        <h2>Rediger ønske</h2>
+        <form th:action="@{/postEditWish}" method="post">
+            <label for="title">Titel:</label>
+            <input type="text" id="title" name="title" placeholder="Indtast titel" required>
+
+            <label for="price">Pris:</label>
+            <input type="number" id="price" name="price" placeholder="Indtast pris" required>
+
+            <label for="note">Note:</label>
+            <input type="text" id="note" name="note" placeholder="Skriv eventuel note">
+            <label for="link">Link:</label>
+            <input type="text" id="link" name="link" placeholder="Indsæt link">
+
+            <label for="wishImg">Billede:</label>
+            <input type="text" id="wishImg" name="wishImg" placeholder="Indsæt billede link">
+
+            <label for="priority">Prioritet:</label>
+            <input type="checkbox" id="priority" name="priority" value="true">
+
+            <input type="hidden" id="wishListId" name="wishListId" th:value="${wishListId}">
+
+            <input type="hidden" id="wishId" name="wishId" th:value="${wishId}">
+
+
+            <button type="submit">Edit ønske</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

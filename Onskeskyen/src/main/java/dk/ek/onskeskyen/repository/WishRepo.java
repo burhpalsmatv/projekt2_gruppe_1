@@ -66,19 +66,37 @@ public class WishRepo {
         }
     }
 
-    public void updateWish(Wish updatedWish) {
-        String sql = "UPDATE wish SET title = ?, price = ?, note = ?, link = ?, wishImg =?, priority=?, wishlistId=?";
+    public void updateWish(int wishId, String title, double price, String note, String link, String wishImg, boolean priority) {
 
-        try (Connection con = dataSource.getConnection();
-             PreparedStatement statement = con.prepareStatement(sql)) {
-            statement.setString(1, updatedWish.getTitle());
-            statement.setDouble(2, updatedWish.getPrice());
-            statement.setString(3, updatedWish.getNote());
-            statement.setString(4, updatedWish.getLink());
-            statement.setString(5, updatedWish.getWishImg());
-            statement.setBoolean(6, updatedWish.getPriority());
-            statement.setInt(7, updatedWish.getWishlistId());
-            statement.executeUpdate();
+        String sql1 = "SELECT title, price, note, link, wishImg, priority FROM wish WHERE wishId = ? FOR UPDATE";
+        String sql2 = "UPDATE wish SET title = ?, price = ?, note = ?, link = ?, wishImg =?, priority=? WHERE wishId = ?";
+
+        try (Connection con = dataSource.getConnection()) {
+            try {
+                con.setAutoCommit(false);
+                PreparedStatement ps1 = con.prepareStatement(sql1);
+                //TODO REMOVE
+                System.out.println("Wish ID WHEN EDIT" + wishId);
+                ps1.setInt(1, wishId);
+                ResultSet rs = ps1.executeQuery();
+                con.commit();
+
+                PreparedStatement ps2 = con.prepareStatement(sql2);
+                ps2.setString(1, title);
+                ps2.setDouble(2, price);
+                ps2.setString(3, note);
+                ps2.setString(4, link);
+                ps2.setString(5, wishImg);
+                ps2.setBoolean(6, priority);
+                ps2.setInt(7, wishId);
+                if (ps2.executeUpdate() == 0) throw new Exception("Failed. Unknown account " + wishId);
+
+                // Commit and unlock row
+                con.commit();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
