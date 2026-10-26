@@ -1,3 +1,11 @@
+:root {
+    --color-1: #9BA17B;
+    --color-2: #3E3F29;
+    --color-3: #CFB997;
+    --color-4: #5E0006;
+    --color-5: #7EACB5;
+}
+
 body {
     font-family: Helvetica, sans-serif;
     margin: 0;

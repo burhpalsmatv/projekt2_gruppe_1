@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Valdemar er en taeber</title>
+  <title>Ønsker - ØnskeÆsken</title>
   <link rel="stylesheet" th:href="@{style.css}">
 </head>
 
@@ -24,22 +24,29 @@
     <main>
       <h1>Ønsker:</h1>
       <div class="wishBox" th:each="wish : ${listOfWishes}">
-        <img th:src="@{'/img/' + ${wish.wishImg}}" alt="wish image"/>
+        <img th:src="@{'/img/' + ${wish.getWishImg()}}" alt="wish image"/>
         <div>
           <label>Titel:</label>
-          <span th:text="${wish.title}">Titel</span>
+          <span th:text="${wish.getTitle()}">Titel</span>
         </div>
         <div>
           <label>Pris:</label>
-          <span th:text="${wish.price}">Pris</span>
+          <span th:text="${wish.getPrice()} + DKK">Pris</span>
         </div>
         <div>
           <label>Note:</label>
-          <span th:text="${wish.link}">Link</span>
+          <span th:text="${wish.getNote()}">Note</span>
+        </div>
+        <div>
+          <label><a th:href="${wish.getLink()}">Link</a></label>
+        </div>
+        <div>
+          <label>Billede:</label>
+          <span th:text="${wish.getWishImg()}">Billede</span>
         </div>
         <div>
           <label>Prioteret ønske:</label>
-          <span th:text="${wish.priority}">Prioteret ønske</span>
+          <span th:text="${wish.getPriority()}">Prioteret ønske</span>
         </div>
         <div>
           <label>Ønske liste nr:</label>
