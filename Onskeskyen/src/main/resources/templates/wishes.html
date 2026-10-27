@@ -78,10 +78,28 @@
           <label>Ønske liste nr:</label>
           <span th:text="${wish.getWishlistId()}">Wishlist</span>
         </div>
-        <div> <!-- giv wishId og wishlistId videre til getEditWish i wishController -->
-          <a class="btn" th:href="@{/getEditWish(wishId=${wish.getWishId()}, wishListId=${wish.getWishlistId()})}">
-            Edit
-          </a>
+        <div>
+          <form th:action="@{/getEditWish}" method="get">
+            <input type="hidden" name="wishId" th:value="${wish.getWishId()}">
+            <input type="hidden" name="wishListId" th:value="${wish.getWishlistId()}">
+            <input type="hidden" name="title" th:value="${wish.getTitle()}">
+            <input type="hidden" name="price" th:value="${wish.getPrice()}">
+            <input type="hidden" name="note" th:value="${wish.getNote()}">
+            <input type="hidden" name="link" th:value="${wish.getLink()}">
+            <input type="hidden" name="wishImg" th:value="${wish.getWishImg()}">
+            <input type="hidden" name="priority" th:value="${wish.getPriority()}">
+
+            <button class="btn" type="submit">Rediger</button>
+          </form>
+        </div>
+
+        <div>
+          <form th:action="@{/postDeleteWish}" method="post">
+            <input type="hidden" name="wishId" th:value="${wish.getWishId()}">
+            <input type="hidden" name="wishListId" th:value="${wish.getWishlistId()}">
+
+            <button class="btn" type="submit">Slet</button>
+          </form>
         </div>
       </div>
       </div>

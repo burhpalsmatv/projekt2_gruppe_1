@@ -38,10 +38,22 @@ public class WishController {
     @GetMapping("/getEditWish")
     public String editWish(
             @RequestParam("wishId") int wishId,
+            @RequestParam("title") String title,
+            @RequestParam("price") double price,
+            @RequestParam("note") String note,
+            @RequestParam("link") String link,
+            @RequestParam("wishImg") String wishImg,
+            @RequestParam("priority") boolean priority,
             @RequestParam("wishListId") int wishListId,
             Model model) {
 
         model.addAttribute("wishId", wishId);
+        model.addAttribute("title", title);
+        model.addAttribute("price", price);
+        model.addAttribute("note", note);
+        model.addAttribute("link", link);
+        model.addAttribute("wishImg", wishImg);
+        model.addAttribute("priority", priority);
         model.addAttribute("wishListId", wishListId);
         return "editWish";
     }
@@ -78,6 +90,16 @@ public class WishController {
         wishService.editWish(
                 wishId, title, price, note, link, wishImg, priority, wishListId
         );
+
+        return "redirect:/getWishes?wishListId=" + wishListId;
+    }
+
+    @PostMapping("/postDeleteWish")
+    public String postDeleteWish(
+            @RequestParam("wishId") int wishId,
+            @RequestParam("wishListId") int wishListId) {
+
+        wishService.deleteWish(wishId);
 
         return "redirect:/getWishes?wishListId=" + wishListId;
     }
