@@ -8,7 +8,7 @@ public class Wish {
     private String link;
     private String wishImg;
     private boolean priority = false;
-    private int wishListId;
+    private int wishlistId;
 
 
     public Wish(String title, double price, String link) {
@@ -17,7 +17,7 @@ public class Wish {
         this.link = link;
     }
 
-    public Wish(int wishId, String title, double price, String note, String link, String wishImg, boolean priority, int wishListId) {
+    public Wish(int wishId, String title, double price, String note, String link, String wishImg, boolean priority, int wishlistId) {
         this.wishId = wishId;
         this.title = title;
         this.price = price;
@@ -25,19 +25,19 @@ public class Wish {
         this.link = link;
         this.wishImg = wishImg;
         this.priority = priority;
-        this.wishListId = wishListId;
+        this.wishlistId = wishlistId;
     }
 
     public Wish() {
     }
 
-    public Wish(String title, double price, String note, String link, String wishImg, boolean priority, int wishListId) {
+    public Wish(String title, double price, String wishImg, String link, String note,int wishlistId, boolean priority) {
         this.title = title;
         this.price = price;
         this.wishImg = wishImg;
         this.link = link;
         this.note = note;
-        this.wishListId = wishListId;
+        this.wishlistId = wishlistId;
         this.priority = priority;
     }
 
@@ -45,12 +45,12 @@ public class Wish {
         this.wishId = wishId;
     }
 
-    public void setWishlistId(int wishlistId) {
-        this.wishListId = wishlistId;
+    public void setWishlistId(int wishlistId){
+        this.wishlistId = wishlistId;
     }
 
-    public int getWishlistId() {
-        return wishListId;
+    public int getWishlistId(){
+        return wishlistId;
     }
 
     public void setTitle(String title) {

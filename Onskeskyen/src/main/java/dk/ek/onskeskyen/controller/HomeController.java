@@ -40,10 +40,10 @@ public class HomeController {
     }
 
     @GetMapping("/getWishes")
-    public String getWishes(Model model, @RequestParam("wishListId") int wishListId) {
-        List<Wish> listOfWishes = wishRepo.getAllWishes(wishListId);
+    public String getWishes(Model model, @RequestParam("wishlistId") int wishlistId) {
+        List<Wish> listOfWishes = wishRepo.getAllWishes(wishlistId);
         model.addAttribute("listOfWishes", listOfWishes);
-        model.addAttribute("wishListId", wishListId);
+        model.addAttribute("wishlistId", wishlistId);
         return "wishes";
     }
 }

@@ -74,7 +74,7 @@ public class Wishlist {
     @Override
     public String toString() {
         return "Wishlist{" +
-                ", wishListId=" + wishlistId +
+                ", wishlistId=" + wishlistId +
                 ", coverImg='" + coverImg + '\'' +
                 '}';
     }
