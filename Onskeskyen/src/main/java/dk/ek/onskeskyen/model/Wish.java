@@ -10,47 +10,64 @@ public class Wish {
     private boolean priority = false;
     private int wishlistId;
 
-
-    public Wish(String title, double price, String link) {
-        this.title = title;
-        this.price = price;
-        this.link = link;
-    }
-
-    public Wish(int wishId, String title, double price, String note, String link, String wishImg, boolean priority, int wishlistId) {
-        this.wishId = wishId;
-        this.title = title;
-        this.price = price;
-        this.note = note;
-        this.link = link;
-        this.wishImg = wishImg;
-        this.priority = priority;
-        this.wishlistId = wishlistId;
-    }
-
     public Wish() {
     }
 
-    public Wish(String title, double price, String wishImg, String link, String note,int wishlistId, boolean priority) {
+    public Wish(String title, double price, String note, String link, String wishImg, int wishlistId, boolean priority) {
         this.title = title;
         this.price = price;
-        this.wishImg = wishImg;
-        this.link = link;
         this.note = note;
+        this.link = link;
+        this.wishImg = wishImg;
         this.wishlistId = wishlistId;
         this.priority = priority;
     }
 
+    // Getters
+
+    public int getWishlistId(){
+        return wishlistId;
+    }
+
+    public int getWishId() {
+        return wishId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getWishImg() {
+        return this.wishImg;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public boolean getPriority() {
+        return priority;
+    }
+
+    public boolean isPriority() {
+        return priority;
+    }
+
+    // Setters
     public void setWishId(int wishId) {
         this.wishId = wishId;
     }
 
     public void setWishlistId(int wishlistId){
         this.wishlistId = wishlistId;
-    }
-
-    public int getWishlistId(){
-        return wishlistId;
     }
 
     public void setTitle(String title) {
@@ -75,38 +92,6 @@ public class Wish {
 
     public void setPriority(boolean priority) {
         this.priority = priority;
-    }
-
-    public int getWishId() {
-        return wishId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public String getWishImg() {
-        return wishImg;
-    }
-
-    public String getLink() {
-        return link;
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public boolean getPriority() {
-        return priority;
-    }
-
-    public boolean isPriority() {
-        return priority;
     }
 
     @Override
