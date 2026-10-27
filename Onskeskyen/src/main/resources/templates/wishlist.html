@@ -24,14 +24,15 @@
     <div class="flex">
         <main>
             <div class="wishBox" th:each="wishlist : ${listOfWishlist}">
-                <a th:href="@{/getWishes(wishListId=${wishlist.wishlistId})}" class="btn"><div>
+                <a th:href="@{/getWishes(wishlistId=${wishlist.wishlistId})}" class="btn"><div>
                     <label>Titel</label>
                     <span th:text="${wishlist.wishlistTitle}">title</span>
 
                 </div></a>
-
-
             </div>
+            <a class="btn" th:href="@{/getCreateWishlist(userWishlistId=${userWishlistId})}">
+                Opret ønskeliste
+            </a>
         </main>
     </div>
 </div>

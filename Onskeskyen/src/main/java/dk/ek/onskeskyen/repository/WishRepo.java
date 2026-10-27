@@ -19,14 +19,14 @@ public class WishRepo {
     protected DataSource dataSource;
 
 
-    public ArrayList<Wish> getAllWishes(int wishListId) {
+    public ArrayList<Wish> getAllWishes(int wishlistId) {
         ArrayList<Wish> listOfWishes = new ArrayList<>();
         String sql = "SELECT * FROM wish WHERE wishlistId = ?";
 
         try (Connection con = dataSource.getConnection();
              PreparedStatement statement = con.prepareStatement(sql)) {
 
-            statement.setInt(1, wishListId);
+            statement.setInt(1, wishlistId);
 
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
