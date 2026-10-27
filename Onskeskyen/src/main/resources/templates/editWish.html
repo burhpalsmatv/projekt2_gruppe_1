@@ -47,23 +47,23 @@
         <h2>Rediger ønske</h2>
         <form th:action="@{/postEditWish}" method="post">
             <label for="title">Titel:</label>
-            <input type="text" id="title" name="title" placeholder="Indtast titel" required>
+            <input type="text" id="title" name="title" th:value="${title}" required>
 
             <label for="price">Pris:</label>
-            <input type="number" id="price" name="price" placeholder="Indtast pris" required>
+            <input type="number" id="price" name="price" th:value="${price}" required>
 
             <label for="note">Note:</label>
-            <input type="text" id="note" name="note" placeholder="Skriv eventuel note">
+            <input type="text" id="note" name="note" th:value="${note} ?: ''">
             <label for="link">Link:</label>
-            <input type="text" id="link" name="link" placeholder="Indsæt link">
+            <input type="text" id="link" name="link" th:value="${link} ?: ''">
 
             <label for="wishImg">Billede:</label>
-            <input type="text" id="wishImg" name="wishImg" placeholder="Indsæt billede link">
+            <input type="text" id="wishImg" name="wishImg" th:value="${wishId}">
 
-            <label for="priority">Prioritet:</label>
-            <input type="checkbox" id="priority" name="priority" value="true">
+            <label for="priority">Prioriteret ønske?</label>
+            <input type="checkbox" id="priority" name="priority" th:value="true" th:checked="${priority}">
 
-            <input type="hidden" id="wishListId" name="wishListId" th:value="${wishListId}">
+            <input type="hidden" id="wishlistId" name="wishlistId" th:value="${wishlistId}">
 
             <input type="hidden" id="wishId" name="wishId" th:value="${wishId}">
 
