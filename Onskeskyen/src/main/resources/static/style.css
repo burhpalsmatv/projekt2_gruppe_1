@@ -219,6 +219,11 @@ footer {
     padding: 10px 5px 20px;
 }
 
+/* Holder hver ønskeboks på 280px, så de ikke krymper ved scrolling */
+.wishScroll .wishBox{
+    flex: 0 0 280px;
+}
+
 
 /*billedet inde i wishBox */
 .wishBox img {
