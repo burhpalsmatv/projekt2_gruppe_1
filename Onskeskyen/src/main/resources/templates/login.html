@@ -7,33 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>ØnskeÆsken</title>
     <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
-    <link rel="stylesheet" href="../static/header.css" th:href="@{header.css}">
 
 </head>
 
 <body>
-
-<div id="header-container">
-    <header>
-        <div id="header-left">
-            <a id="header-logo" href="../templates/index.html">
-                <img src="../defaultImages/logo.png}">
-            </a>
-
-            <a class="header-link" href="../templates/omos.html">Om Os</a>
-            <a class="header-link" href="../templates/wishlist.html">ØnskeLister</a>
-        </div>
-
-        </div>
-        <div id="header-right">
-        </div>
-    </header>
-</div>
-
-<br><br><br><br><br><br><br>
-
+<div th:replace="~{fragments/header :: header}">Header</div>
 <div class="ex1">
-<h1> Log ind </h1>
+    <h1> Log ind </h1>
 
     <Label for="email">E-mail </Label> <br>
     <input type="email" id="email" required>
@@ -49,10 +29,10 @@
 
     <button type="submit">Log ind</button>
 
-<p>
-    Har du ikke en profil endnu?
-    <a href="opretprofil.html" > Opret dig</a>
-</p>
+    <p>
+        Har du ikke en profil endnu?
+        <a href="opretprofil.html"> Opret dig</a>
+    </p>
 
 </div>
 </body>

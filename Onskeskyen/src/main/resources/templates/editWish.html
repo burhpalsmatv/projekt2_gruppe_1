@@ -5,43 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Rediger - ØnskeÆsken</title>
     <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
-    <link rel="stylesheet" href="../static/header.css" th:href="@{header.css}">
 
 </head>
 
 <body>
-<div id="header-container">
-    <header>
-        <div id="header-left">
-            <a id="header-logo" href="../templates/index.html">
-                <img src="../defaultImages/logo.png}">
-            </a>
-
-            <a class="header-link" th:href="${omos}">Om Os</a>
-            <a class="header-link" th:href="${wishlist}">ØnskeLister</a>
-        </div>
-
-        <div id="header-right">
-            <!-- Log ind -->
-            <div class="header-button">
-                <a href="../templates/login.html" class="button">
-                    Log ind
-                </a>
-                </label>
-
-            </div>
-
-            <!-- Opret profil -->
-            <div class="header-button">
-                <a href="../templates/opretprofil.html" class="button">
-                    Opret profil
-                </a>
-                </label>
-
-            </div>
-        </div>
-    </header>
-</div>
+<div th:replace="~{fragments/header :: header}">Header</div>
 <div class="form-container">
     <div class="form-section">
         <h2>Rediger ønske</h2>
