@@ -7,7 +7,7 @@ public class Wish {
     private String note;
     private String link;
     private String wishImg;
-    private boolean priority = false;
+    private boolean priority = false; // Set to false by default or HTML fails
     private int wishlistId;
 
     public Wish() {
@@ -24,8 +24,7 @@ public class Wish {
     }
 
     // Getters
-
-    public int getWishlistId(){
+    public int getWishlistId() {
         return wishlistId;
     }
 
@@ -57,16 +56,12 @@ public class Wish {
         return priority;
     }
 
-    public boolean isPriority() {
-        return priority;
-    }
-
     // Setters
     public void setWishId(int wishId) {
         this.wishId = wishId;
     }
 
-    public void setWishlistId(int wishlistId){
+    public void setWishlistId(int wishlistId) {
         this.wishlistId = wishlistId;
     }
 
