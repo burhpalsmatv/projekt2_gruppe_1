@@ -1,7 +1,5 @@
 package dk.ek.onskeskyen.repository;
 
-import dk.ek.onskeskyen.model.User;
-import dk.ek.onskeskyen.model.Wish;
 import dk.ek.onskeskyen.model.Wishlist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

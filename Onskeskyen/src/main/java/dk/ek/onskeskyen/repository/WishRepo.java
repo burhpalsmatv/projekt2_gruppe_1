@@ -1,7 +1,6 @@
 package dk.ek.onskeskyen.repository;
 
 import dk.ek.onskeskyen.model.Wish;
-import dk.ek.onskeskyen.model.Wishlist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -19,6 +18,17 @@ public class WishRepo {
     protected DataSource dataSource;
 
 
+    /**
+     * Gets all wishes.
+     *
+     * @param wishlistId the wishlist id
+     * @return the all wishes
+     *
+     * <p>
+     * Executes an SQL query that selects all wishes where the wishlistId is x
+     * Each wish record is mapped to a wish object and is added to a list that
+     * is uded in the controller.
+     */
     public ArrayList<Wish> getAllWishes(int wishlistId) {
         ArrayList<Wish> listOfWishes = new ArrayList<>();
         String sql = "SELECT * FROM wish WHERE wishlistId = ?";

@@ -1,6 +1,5 @@
 package dk.ek.onskeskyen.controller;
 
-import dk.ek.onskeskyen.repository.WishlistRepo;
 import dk.ek.onskeskyen.service.WishService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,6 +21,24 @@ public class WishController {
         return "createWish";
     }
 
+    /**
+     * Edit wish string.
+     *
+     * @param wishId     the wish id
+     * @param title      the title
+     * @param price      the price
+     * @param note       the note
+     * @param link       the link
+     * @param wishImg    the wish img
+     * @param priority   the priority
+     * @param wishlistId the wishlist id
+     * @param model      the model
+     * @return the string
+     * <p>
+     * The controller recieves the GET request from view and adds them to the model
+     * making them available in the editWish.html
+     *
+     */
     @GetMapping("/getEditWish")
     public String editWish(@RequestParam("wishId") int wishId, @RequestParam("title") String title, @RequestParam("price") double price, @RequestParam("note") String note, @RequestParam("link") String link, @RequestParam("wishImg") String wishImg, @RequestParam("priority") boolean priority, @RequestParam("wishlistId") int wishlistId, Model model) {
 

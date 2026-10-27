@@ -11,10 +11,9 @@ public class WishService {
     @Autowired
     WishRepo wishRepo;
 
-    public Wish createWish(String title, double price, String note, String link, String wishImg, boolean priority, int wishlistId) {
+    public void createWish(String title, double price, String note, String link, String wishImg, boolean priority, int wishlistId) {
         Wish wish = new Wish(title, price, note, link, wishImg, wishlistId, priority);
         wishRepo.save(wish);
-        return wish;
     }
 
     public void editWish(int wishId, String title, double price, String note, String link, String wishImg, boolean priority, int wishlistId) {
