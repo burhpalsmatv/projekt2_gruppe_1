@@ -100,6 +100,7 @@ body {
 .btn {
     max-width: 50px;
     margin: 0 auto;
+    text-align: right;
 }
 
 .form-container {
