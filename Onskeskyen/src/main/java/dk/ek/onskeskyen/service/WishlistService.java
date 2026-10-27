@@ -13,8 +13,8 @@ public class WishlistService {
         this.wishlistRepo = wishlistRepo;
     }
 
-    public Wishlist createWishlist(String wishlistTitle) {
-        Wishlist wishlist = new Wishlist(wishlistTitle);
+    public Wishlist createWishlist(String wishlistTitle, int userWishlistId) {
+        Wishlist wishlist = new Wishlist(userWishlistId, wishlistTitle);
         wishlistRepo.save(wishlist); // Gem i database
         return wishlist;
     }

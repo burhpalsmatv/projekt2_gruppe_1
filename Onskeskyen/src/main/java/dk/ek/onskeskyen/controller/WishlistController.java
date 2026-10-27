@@ -28,7 +28,7 @@ public class WishlistController {
     public String postCreateWishlist(
             @RequestParam("wishlistTitle") String wishlistTitle) {
 
-        wishlistService.createWishlist(wishlistTitle);
+        wishlistService.createWishlist(wishlistTitle, 1);
 
         return "redirect:/wishlist";
     }

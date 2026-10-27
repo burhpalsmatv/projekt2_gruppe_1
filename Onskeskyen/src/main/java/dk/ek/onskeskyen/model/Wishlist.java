@@ -37,6 +37,11 @@ public class Wishlist {
     // Tom Constructor
     public Wishlist() {}
 
+    public Wishlist(int userWishlistId, String wishlistTitle) {
+        this.userWishlistId = userWishlistId;
+        this.wishlistTitle = wishlistTitle;
+    }
+
     public int getUserWishlistId() {
         return userWishlistId;
     }
