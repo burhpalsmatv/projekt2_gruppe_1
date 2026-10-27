@@ -14,11 +14,17 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
 @Repository
 public class WishlistRepo {
 
     @Autowired
-    private DataSource dataSource;
+    protected DataSource dataSource;
+
+    public WishlistRepo(DataSource dataSource) {
+        this.dataSource = dataSource;
+    }
 
     public List<Wishlist> getAllWishlists() {
         List<Wishlist> listOfWishlist = new ArrayList<>();
@@ -43,7 +49,7 @@ public class WishlistRepo {
     }
 
 
-    public Wishlist getWishList(int wishlistId) {
+    public Wishlist getWishlist(int wishlistId) {
         Wishlist wishlist = new Wishlist();
         String sql = "SELECT * FROM wishlist WHERE wishlistId =?";
 
@@ -66,7 +72,7 @@ public class WishlistRepo {
     }
 
 
-    public void deleteWishList(int wishlistId, int userWishlistId) { // userId
+    public void deleteWishlist(int wishlistId, int userWishlistId) { // userId
         String sql = "DELETE FROM wishlist WHERE wishlistId = ? AND userWishlistId = ?";
         // Eventuelt find et bedre lag, hvor man tjekker om useren har adgang til denne wishlist
         // -- DET ER FOR AT SØRGE FOR AT USERS IKKE KAN SLETTE WISHLISTS DE IKKE SELV EJER --
@@ -87,6 +93,8 @@ public class WishlistRepo {
     }
 
     public void save(Wishlist wishlist) {
+
+
         String sql = "INSERT INTO wishlist(userWishlistId, wishlistTitle, coverImg)" +
                 "VALUES(?,?, ?)";
 
