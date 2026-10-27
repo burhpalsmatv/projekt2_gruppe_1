@@ -33,16 +33,15 @@ public class WishlistController {
         return "redirect:/wishlist";
     }
 
-    @PostMapping ("/deleteWishlist")
-    public String deleteWishlist(
-            @RequestParam("wishlistId") int wishlistId,
-            @RequestParam("userId") int userId
+    @PostMapping ("/postDeleteWishlist")
+    public String postDeleteWishlist(
+            @RequestParam("wishlistId") int wishlistId
 
     ) {
 
-        wishlistService.deleteWishlist(wishlistId, userId);
+        wishlistService.deleteWishlist(wishlistId, 1);
 
-        return "/wishlist";
+        return "redirect:/wishlist";
 
     }
 }

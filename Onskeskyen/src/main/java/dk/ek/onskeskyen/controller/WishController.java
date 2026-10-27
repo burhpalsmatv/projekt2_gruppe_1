@@ -68,6 +68,10 @@ public class WishController {
             @RequestParam(value = "priority", defaultValue = "false") boolean priority,
             @RequestParam("wishlistId") int wishlistId) {
 
+        if (wishImg == null || wishImg.isBlank()) {
+            wishImg = "../images/defaultImages/defaultcoverimg.png";
+        }
+
         wishService.createWish(
                 title, price, note, link, wishImg, priority, wishlistId
         );

@@ -51,7 +51,7 @@
 
       <div class="wishScroll">
       <div class="wishBox" th:each="wish : ${listOfWishes}">
-        <img th:src="@{'/img/' + ${wish.getWishImg()}}" alt="wish image"/>
+        <img th:src="@{${wish.getWishImg()}}" alt="wish image"/>
 
         <div>
           <label>Titel:</label>
@@ -70,11 +70,6 @@
 
         <div>
           <label><a th:href="${wish.getLink()}">Link</a></label>
-        </div>
-
-        <div>
-          <label>Billede:</label>
-          <span th:text="${wish.getWishImg()}">Billede</span>
         </div>
 
         <div>
