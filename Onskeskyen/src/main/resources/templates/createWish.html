@@ -1,15 +1,49 @@
-<!-- create.html -->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Opret ønske</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Opret - ØnskeÆsken</title>
     <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
+    <link rel="stylesheet" href="../static/header.css" th:href="@{header.css}">
+
 </head>
+
 <body>
-<div class="container">
-    <div class="form-container">
+<div id="header-container">
+    <header>
+        <div id="header-left">
+            <a id="header-logo" href="../templates/index.html">
+                <img src="../defaultImages/logo.png}">
+            </a>
+
+            <a class="header-link" th:href="${omos}">Om Os</a>
+            <a class="header-link" th:href="${wishlist}">ØnskeLister</a>
+        </div>
+
+        <div id="header-right">
+            <!-- Log ind -->
+            <div class="header-button">
+                <a href="../templates/login.html" class="button">
+                    Log ind
+                </a>
+                </label>
+
+            </div>
+
+            <!-- Opret profil -->
+            <div class="header-button">
+                <a href="../templates/opretprofil.html" class="button">
+                    Opret profil
+                </a>
+                </label>
+
+            </div>
+        </div>
+    </header>
+</div>
+<div class="form-container">
+    <div class="form-section">
         <h2>Opret nyt ønske</h2>
         <form th:action="@{/postCreateWish}" method="post">
             <label for="title">Titel:</label>
@@ -26,7 +60,7 @@
             <label for="wishImg">Billede:</label>
             <input type="text" id="wishImg" name="wishImg" placeholder="Indsæt billede link">
 
-            <label for="priority">Prioritet:</label>
+            <label for="priority">Prioriteret ønske?</label>
             <input type="checkbox" id="priority" name="priority" value="true">
 
             <input type="hidden" id="wishlistId" name="wishlistId" th:value="${wishlistId}">
