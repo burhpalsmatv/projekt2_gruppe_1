@@ -18,6 +18,7 @@
 
       <h1>Ønsker</h1>
 
+      <!-- The passed listOfWishes can be used in this HTML file (see HomeController.getAllWishes())-->
       <a class="btn" th:href="@{/getCreateWish(wishlistId=${wishlistId})}">
         Opret ønske
       </a>
@@ -56,7 +57,8 @@
           <span th:text="${wish.getWishlistId()}">Wishlist</span>
         </div>
 
-
+        <!-- This GET request sends the selected wish data to the controller when the user clicks
+              on Rediger. the controller uses this information to prepare the edit viev (see WishController)-->
         <div>
           <form th:action="@{/getEditWish}" method="get">
             <input type="hidden" name="wishId" th:value="${wish.getWishId()}">

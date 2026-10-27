@@ -39,6 +39,17 @@ public class HomeController {
         return "wishlist";
     }
 
+    /**
+     * Gets wishes.
+     *
+     * @param model      the model
+     * @param wishlistId the wishlist id
+     * @return the wishes
+     * <p>
+     * The homeController receives a get request from the view, asks the repo (see wishRepo) to retrieve all wishes and
+     * adds the data to the model. Then the controller redirects to the HTML page that displays the wishes.
+     * See wishes.HTML
+     */
     @GetMapping("/getWishes")
     public String getWishes(Model model, @RequestParam("wishlistId") int wishlistId) {
         List<Wish> listOfWishes = wishRepo.getAllWishes(wishlistId);

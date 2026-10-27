@@ -1,10 +1,5 @@
-
 package dk.ek.onskeskyen.controller;
 
-import dk.ek.onskeskyen.model.Wish;
-import dk.ek.onskeskyen.model.Wishlist;
-import dk.ek.onskeskyen.repository.WishRepo;
-import dk.ek.onskeskyen.repository.WishlistRepo;
 import dk.ek.onskeskyen.service.WishService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,39 +8,39 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.List;
-
-
-
 @Controller
 public class WishController {
 
     @Autowired
     WishService wishService;
 
-    @Autowired
-    WishlistRepo wishlistRepo;
-
     @GetMapping("/getCreateWish")
-    public String getCreateWish(
-            @RequestParam("wishlistId") int wishlistId,
-            Model model) {
+    public String getCreateWish(@RequestParam("wishlistId") int wishlistId, Model model) {
 
         model.addAttribute("wishlistId", wishlistId);
         return "createWish";
     }
 
+    /**
+     * Edit wish string.
+     *
+     * @param wishId     the wish id
+     * @param title      the title
+     * @param price      the price
+     * @param note       the note
+     * @param link       the link
+     * @param wishImg    the wish img
+     * @param priority   the priority
+     * @param wishlistId the wishlist id
+     * @param model      the model
+     * @return the string
+     * <p>
+     * The controller recieves the GET request from view and adds them to the model
+     * making them available in the editWish.html
+     *
+     */
     @GetMapping("/getEditWish")
-    public String editWish(
-            @RequestParam("wishId") int wishId,
-            @RequestParam("title") String title,
-            @RequestParam("price") double price,
-            @RequestParam("note") String note,
-            @RequestParam("link") String link,
-            @RequestParam("wishImg") String wishImg,
-            @RequestParam("priority") boolean priority,
-            @RequestParam("wishlistId") int wishlistId,
-            Model model) {
+    public String editWish(@RequestParam("wishId") int wishId, @RequestParam("title") String title, @RequestParam("price") double price, @RequestParam("note") String note, @RequestParam("link") String link, @RequestParam("wishImg") String wishImg, @RequestParam("priority") boolean priority, @RequestParam("wishlistId") int wishlistId, Model model) {
 
         model.addAttribute("wishId", wishId);
         model.addAttribute("title", title);
@@ -59,49 +54,27 @@ public class WishController {
     }
 
     @PostMapping("/postCreateWish")
-    public String postCreateWish(
-            @RequestParam("title") String title,
-            @RequestParam("price") double price,
-            @RequestParam(value = "note", required = false) String note,
-            @RequestParam(value = "link", required = false) String link,
-            @RequestParam(value = "wishImg", required = false) String wishImg,
-            @RequestParam(value = "priority", defaultValue = "false") boolean priority,
-            @RequestParam("wishlistId") int wishlistId) {
+    public String postCreateWish(@RequestParam("title") String title, @RequestParam("price") double price, @RequestParam(value = "note", required = false) String note, @RequestParam(value = "link", required = false) String link, @RequestParam(value = "wishImg", required = false) String wishImg, @RequestParam(value = "priority", defaultValue = "false") boolean priority, @RequestParam("wishlistId") int wishlistId) {
 
         if (wishImg == null || wishImg.isBlank()) {
             wishImg = "../images/defaultImages/defaultcoverimg.png";
         }
 
-        wishService.createWish(
-                title, price, note, link, wishImg, priority, wishlistId
-        );
+        wishService.createWish(title, price, note, link, wishImg, priority, wishlistId);
 
         return "redirect:/getWishes?wishlistId=" + wishlistId;
     }
 
-    //TODO: FIX THIS ONE
     @PostMapping("/postEditWish")
-    public String postEditWish(
-            @RequestParam("title") String title,
-            @RequestParam("price") double price,
-            @RequestParam(value = "note", required = false) String note,
-            @RequestParam(value = "link", required = false) String link,
-            @RequestParam(value = "wishImg", required = false) String wishImg,
-            @RequestParam(value = "priority", defaultValue = "false") boolean priority,
-            @RequestParam("wishId") int wishId,
-            @RequestParam("wishlistId") int wishlistId) {
+    public String postEditWish(@RequestParam("title") String title, @RequestParam("price") double price, @RequestParam(value = "note", required = false) String note, @RequestParam(value = "link", required = false) String link, @RequestParam(value = "wishImg", required = false) String wishImg, @RequestParam(value = "priority", defaultValue = "false") boolean priority, @RequestParam("wishId") int wishId, @RequestParam("wishlistId") int wishlistId) {
 
-        wishService.editWish(
-                wishId, title, price, note, link, wishImg, priority, wishlistId
-        );
+        wishService.editWish(wishId, title, price, note, link, wishImg, priority, wishlistId);
 
         return "redirect:/getWishes?wishlistId=" + wishlistId;
     }
 
     @PostMapping("/postDeleteWish")
-    public String postDeleteWish(
-            @RequestParam("wishId") int wishId,
-            @RequestParam("wishlistId") int wishlistId) {
+    public String postDeleteWish(@RequestParam("wishId") int wishId, @RequestParam("wishlistId") int wishlistId) {
 
         wishService.deleteWish(wishId);
 
