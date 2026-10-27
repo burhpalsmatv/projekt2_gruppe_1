@@ -28,7 +28,8 @@ public class Wish {
         this.wishlistId = wishlistId;
     }
 
-    public Wish(){}
+    public Wish() {
+    }
 
     public Wish(String title, double price, String wishImg, String link, String note,int wishlistId, boolean priority) {
         this.title = title;
@@ -80,7 +81,7 @@ public class Wish {
         return wishId;
     }
 
-    public String getTitle(){
+    public String getTitle() {
         return title;
     }
 

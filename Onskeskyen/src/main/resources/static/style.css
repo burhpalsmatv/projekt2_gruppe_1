@@ -1,16 +1,86 @@
+:root {
+    --color-1: #9BA17B;
+    --color-2: #3E3F29;
+    --color-3: #CFB997;
+    --color-4: #5E0006;
+    --color-5: #7EACB5;
+    --color-6: #FFF9E5;
+    --color-7: #EFE4D2;
+}
+
+@font-face {
+    font-family: 'GlyceRegular';
+    src: url("./font/GlyceRegular-9M7DB.otf") format("opentype");
+    src: url("./font/GlyceRegular-9M7DB.woff") format("woff");
+}
+
+
+.boxSmall {
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--color-2);
+    padding-left:5px;
+    text-align: center;
+    background-color: var(--color-3);
+    height: 175px;
+    width:225px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.boxMedium {
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--color-4);
+    padding-left:5px;
+    text-align: center;
+    background-color: var(--color-1);
+    height: 275px;
+    width:350px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
+.boxLarge {
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--color-2);
+    padding-left:5px;
+    text-align: center;
+    background-color: var(--color-5);
+    height: 400px;
+    width:425px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    margin-top: 5px;
+}
+
 body {
-    font-family: Helvetica, sans-serif;
     margin: 0;
-    background-color: white;
+    background-color: var(--color-7);
     background-size: 65px;
     color: black;
+    font-family: 'GlyceRegular', sans-serif;
 }
+
 /* container bruges til at wrappe hele hjemmesiden */
 .container {
     max-width: 900px;
     margin: 0 auto;
 
 }
+
 /* alle links i container div*/
 .container a {
     color: black;
@@ -21,11 +91,37 @@ body {
 /* til login/oprette profil siderne */
 .ex1 {
     margin-left: 50px;
+    text-align: center;
+
 }
 
 .btn {
     max-width: 50px;
     margin: 0 auto;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+}
+
+.form-section h3 {
+    margin-bottom: 20px;
+}
+
+.form-section input {
+    width: 200px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
 /*hvis der skal billede/video som header kan det indsættes her med en .header video*/
@@ -74,7 +170,8 @@ body {
 }
 
 /* hvis der skal være en sidebar, hvis der skal være forskellige sidebars så lav en .rightSidebar og en .leftSidebar*/
-aside {}
+aside {
+}
 
 main {
     background-color: white;
@@ -124,6 +221,7 @@ footer {
     border-radius: 4px;
     object-fit: fill;
 }
+
 .wishBox div {
     width: 100%;
 }
@@ -176,4 +274,9 @@ strong {
     border-radius: 50%;
     object-fit: cover;
     cursor: pointer;
+}
+
+section {
+    margin-bottom: 40px;
+    padding-top: 10px;
 }

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Om os - ØnskeÆsken</title>
+  <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
+  <link rel="stylesheet" href="../static/header.css" th:href="@{header.css}">
+
+</head>
+
+<body>
+<div id="header-container">
+  <header>
+    <div id="header-left">
+      <a id="header-logo" th:href="@{/}">
+        <img th:src="@{/defaultImages/logo.png}">
+      </a>
+
+      <a class="header-link" th:href="@{/omos}">Om Os</a>
+      <a class="header-link" th:href="@{/wishlist}">ØnskeLister</a>
+    </div>
+
+    <div id="header-right">
+      <!-- Log ind -->
+      <div class="header-button">
+        <a href="../templates/login.html" class="button">
+          Log ind
+        </a>
+        </label>
+
+      </div>
+
+      <!-- Opret profil -->
+      <div class="header-button">
+        <a href="../templates/opretprofil.html" class="button">
+          Opret profil
+        </a>
+        </label>
+
+      </div>
+    </div>
+  </header>
+</div>
+
+  <div class="flex">
+    <main>
+      <section>
+      <h1 style="text-align: left;">ØnskeÆsken</h1>
+      <p><strong>ØnskeÆsken – Vi hjælper dig med samle dine ønsker.</strong></p>
+
+      <p>Hos ØnskeÆsken gør vi det nemt at samle, organisere og dele dine ønsker ét sted. Uanset om du planlægger fødselsdag, jul eller en særlig begivenhed, hjælper vi dig med at holde styr på dine ønsker og dele dem med dem, du holder af. En enkel og overskuelig løsning, der gør det lettere at lave sin ønskeliste</p>
+      <p><i></i> -ØnskeÆsken holdet</p>
+      </section>
+
+      <section>
+      <h1 style="text-align: left;">Kontakt</h1>
+
+        <p>ØnskeÆsken Hovedtelefon: <strong> +45 42 26 06 17</strong></p>
+        <p>ØnskeÆsken mail: <strong>maho1004@stud.ek.dk</strong></p>
+        <p><i></i> Telefon åbningstider: <br><strong>Alle hverdage 00:00-23:59</strong></p>
+      </section>
+    </main>
+  </div>
+</div>
+
+
+</body>
+</html>

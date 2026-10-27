@@ -5,33 +5,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title> ØnskeÆsken </title>
+    <title>ØnskeÆsken</title>
     <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
+    <link rel="stylesheet" href="../static/header.css" th:href="@{header.css}">
+
 </head>
 
 <body>
 
-<div class = "container">
-    <div class="headerArea">
-        <nav class="navbar" style="margin-bottom: 10px;">
-            <ul>
-                <li><a th:href="@{#}">Home</a></li>
-                <li><a th:href="@{/wishlist}">Ønskelister</a></li>
-            </ul>
-        </nav>
-    </div>
+<div id="header-container">
+    <header>
+        <div id="header-left">
+            <a id="header-logo" href="">
+                <img src=""> <!-- mangler img til logo -->
+            </a>
+            <a class="header-link" href="../templates/omos.html">Om Os</a>
+            <a class="header-link" href="../templates/wishlist.html">ØnskeLister</a>
+
+        </div>
+        <div id="header-right">
+        </div>
+    </header>
 </div>
 
-<div class="ex1">
-<h2> Log ind </h2>
+<br><br><br><br><br><br><br>
 
-    <Label for="email">E-mail: </Label> <br>
+<div class="ex1">
+<h1> Log ind </h1>
+
+    <Label for="email">E-mail </Label> <br>
     <input type="email" id="email" required>
 
     <br>
     <br>
 
-    <Label for="password">Adgangskode: </Label> <br>
+    <Label for="password">Adgangskode </Label> <br>
     <input type="password" id="password" required>
 
     <br>

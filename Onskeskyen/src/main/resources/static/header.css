@@ -1,0 +1,113 @@
+:root {
+    --color-1: #9BA17B;
+    --color-2: #3E3F29;
+    --color-3: #CFB997;
+    --color-4: #5E0006;
+    --color-5: #7EACB5;
+    font-size: 90%;
+}
+
+body {
+    margin: 0;
+}
+
+#header-container p, a {
+    font-size: 1.1rem;
+}
+
+a {
+    color: var(--color-2);
+    transition: color 0.15s;
+}
+
+/* Header styles */
+
+#header-container {
+    box-shadow: 0px 0px 4px var(--color-1);
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    top: 0;
+    z-index: 69696969;
+    transition: background-color 0.15s;
+    font-family: "Cabin", "Segoe UI", "Calibri", sans-serif;
+}
+
+
+header {
+    min-height: 5rem;
+    padding: 0 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 96rem;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+#header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#header-left {
+    display: flex;
+    align-items: center;
+}
+
+.header-button {
+    margin: 0;
+}
+
+#header-logo {
+    height: 100%;
+    padding-right: 1rem;
+    display: inherit;
+    width: 100px;
+}
+
+.header-link {
+    padding: .5rem;
+    margin: .5rem;
+    text-transform: uppercase;
+    color: #333;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.header-link:hover {
+    color: var(--color-1);
+}
+
+
+
+/* knap */
+
+.button {
+    padding: .75rem 1.5rem;
+    background-color: var(--color-3);
+    box-shadow: 0px 0px 4px var(--color-1);
+    transition: filter 0.2s, box-shadow 0.2s;
+    color: white;
+    border-radius: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    margin: 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+.button:hover {
+    filter: brightness(1.07);
+    box-shadow: 0px 0px 8px var(--color-1);
+}
+
+
+
+

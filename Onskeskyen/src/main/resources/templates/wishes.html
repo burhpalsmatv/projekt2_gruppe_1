@@ -3,47 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Valdemar er en taeber</title>
-  <link rel="stylesheet" th:href="@{style.css}">
+  <title>Ønsker - ØnskeÆsken</title>
+  <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
+  <link rel="stylesheet" href="../static/header.css" th:href="@{header.css}">
+
 </head>
 
 <body>
-<div class=container>
-  <div class="headerArea">
-    <div class="header" style="height: 150px;">
-    </div>
-    <nav class="navbar" style="margin-bottom: 10px;">
-      <ul>
-        <li><a th:href="@{/index}">Home</a></li>
-        <li><a th:href="@{/wishlist}">Ønskelister</a></li>
-      </ul>
-    </nav>
-  </div>
+<div id="header-container">
+  <header>
+    <div id="header-left">
+      <a id="header-logo" th:href="@{/}">
+        <img th:src="@{/defaultImages/logo.png}">
+      </a>
 
-  <div class="flex">
+      <a class="header-link" th:href="@{/omos}">Om Os</a>
+      <a class="header-link" th:href="@{/wishlist}">ØnskeLister</a>
+    </div>
+
+    <div id="header-right">
+      <!-- Log ind -->
+      <div class="header-button">
+        <a href="../templates/login.html" class="button">
+          Log ind
+        </a>
+        </label>
+
+      </div>
+
+      <!-- Opret profil -->
+      <div class="header-button">
+        <a href="../templates/opretprofil.html" class="button">
+          Opret profil
+        </a>
+        </label>
+
+      </div>
+    </div>
+  </header>
+</div>
+
+<body>
+  <div class="wishContainer">
     <main>
       <h1>Ønsker:</h1>
       <div class="wishBox" th:each="wish : ${listOfWishes}">
-        <img th:src="@{'/img/' + ${wish.wishImg}}" alt="wish image"/>
+        <img th:src="@{'/img/' + ${wish.getWishImg()}}" alt="wish image"/>
         <div>
           <label>Titel:</label>
-          <span th:text="${wish.title}">Titel</span>
+          <span th:text="${wish.getTitle()}">Titel</span>
         </div>
         <div>
           <label>Pris:</label>
-          <span th:text="${wish.price}">Pris</span>
+          <span th:text="${wish.getPrice()} + DKK">Pris</span>
         </div>
         <div>
           <label>Note:</label>
-          <span th:text="${wish.link}">Link</span>
+          <span th:text="${wish.getNote()}">Note</span>
+        </div>
+        <div>
+          <label><a th:href="${wish.getLink()}">Link</a></label>
+        </div>
+        <div>
+          <label>Billede:</label>
+          <span th:text="${wish.getWishImg()}">Billede</span>
         </div>
         <div>
           <label>Prioteret ønske:</label>
-          <span th:text="${wish.priority}">Prioteret ønske</span>
+          <span th:text="${wish.getPriority()}">Prioteret ønske</span>
         </div>
         <div>
           <label>Ønske liste nr:</label>
           <span th:text="${wish.getWishlistId()}">Wishlist</span>
+        </div>
+        <div> <!-- giv wishId og wishlistId videre til getEditWish i wishController -->
+          <a class="btn" th:href="@{/getEditWish(wishId=${wish.getWishId()}, wishListId=${wish.getWishlistId()})}">
+            Edit
+          </a>
         </div>
 
       </div>

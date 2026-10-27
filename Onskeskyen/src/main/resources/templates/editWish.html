@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Rediger - ØnskeÆsken</title>
+    <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
+    <link rel="stylesheet" href="../static/header.css" th:href="@{header.css}">
+
+</head>
+
+<body>
+<div id="header-container">
+    <header>
+        <div id="header-left">
+            <a id="header-logo" th:href="@{/}">
+                <img th:src="@{/defaultImages/logo.png}">
+            </a>
+
+            <a class="header-link" th:href="@{/omos}">Om Os</a>
+            <a class="header-link" th:href="@{/wishlist}">ØnskeLister</a>
+        </div>
+
+        <div id="header-right">
+            <!-- Log ind -->
+            <div class="header-button">
+                <a href="../templates/login.html" class="button">
+                    Log ind
+                </a>
+                </label>
+
+            </div>
+
+            <!-- Opret profil -->
+            <div class="header-button">
+                <a href="../templates/opretprofil.html" class="button">
+                    Opret profil
+                </a>
+                </label>
+
+            </div>
+        </div>
+    </header>
+</div>
+<div class="form-container">
+    <div class="form-section">
+        <h2>Rediger ønske</h2>
+        <form th:action="@{/postEditWish}" method="post">
+            <label for="title">Titel:</label>
+            <input type="text" id="title" name="title" placeholder="Indtast titel" required>
+
+            <label for="price">Pris:</label>
+            <input type="number" id="price" name="price" placeholder="Indtast pris" required>
+
+            <label for="note">Note:</label>
+            <input type="text" id="note" name="note" placeholder="Skriv eventuel note">
+            <label for="link">Link:</label>
+            <input type="text" id="link" name="link" placeholder="Indsæt link">
+
+            <label for="wishImg">Billede:</label>
+            <input type="text" id="wishImg" name="wishImg" placeholder="Indsæt billede link">
+
+            <label for="priority">Prioritet:</label>
+            <input type="checkbox" id="priority" name="priority" value="true">
+
+            <input type="hidden" id="wishListId" name="wishListId" th:value="${wishListId}">
+
+            <input type="hidden" id="wishId" name="wishId" th:value="${wishId}">
+
+
+            <button type="submit">Rediger ønske</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

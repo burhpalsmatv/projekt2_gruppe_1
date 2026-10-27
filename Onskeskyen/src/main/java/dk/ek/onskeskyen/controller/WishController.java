@@ -35,6 +35,17 @@ public class WishController {
         return "createWish";
     }
 
+    @GetMapping("/getEditWish")
+    public String editWish(
+            @RequestParam("wishId") int wishId,
+            @RequestParam("wishListId") int wishListId,
+            Model model) {
+
+        model.addAttribute("wishId", wishId);
+        model.addAttribute("wishListId", wishListId);
+        return "editWish";
+    }
+
     @PostMapping("/postCreateWish")
     public String postCreateWish(
             @RequestParam("title") String title,
@@ -50,5 +61,24 @@ public class WishController {
         );
 
         return "redirect:/getWishes?wishlistId=" + wishlistId;
+    }
+
+    //TODO: FIX THIS ONE
+    @PostMapping("/postEditWish")
+    public String postEditWish(
+            @RequestParam("title") String title,
+            @RequestParam("price") double price,
+            @RequestParam(value = "note", required = false) String note,
+            @RequestParam(value = "link", required = false) String link,
+            @RequestParam(value = "wishImg", required = false) String wishImg,
+            @RequestParam(value = "priority", defaultValue = "false") boolean priority,
+            @RequestParam("wishId") int wishId,
+            @RequestParam("wishListId") int wishListId) {
+
+        wishService.editWish(
+                wishId, title, price, note, link, wishImg, priority, wishListId
+        );
+
+        return "redirect:/getWishes?wishListId=" + wishListId;
     }
 }

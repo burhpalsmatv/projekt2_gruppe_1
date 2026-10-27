@@ -3,37 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Home Page</title>
+    <title>Forside - ØnskeÆsken</title>
     <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
+    <link rel="stylesheet" href="../static/header.css" th:href="@{header.css}">
+
 </head>
 
 <body>
-<div class = "container">
-<div class="headerArea">
-    <nav class="navbar" style="margin-bottom: 10px;">
-        <ul>
-            <li><a th:href="@{#}">Home</a></li>
-            <li><a th:href="@{/wishlist}">Ønskelister</a></li>
-        </ul>
-    </nav>
+<div id="header-container">
+    <header>
+        <div id="header-left">
+            <a id="header-logo" th:href="@{/}">
+              <img th:src="@{/defaultImages/logo.png}">
+            </a>
+
+            <a class="header-link" th:href="@{/omos}">Om Os</a>
+            <a class="header-link" th:href="@{/wishlist}">ØnskeLister</a>
+        </div>
+
+        <div id="header-right">
+            <!-- Log ind -->
+            <div class="header-button">
+                <a href="../templates/login.html" class="button">
+                    Log ind
+                </a>
+                </label>
+
+            </div>
+
+            <!-- Opret profil -->
+            <div class="header-button">
+                <a href="../templates/opretprofil.html" class="button">
+                    Opret profil
+                </a>
+                </label>
+
+            </div>
+        </div>
+    </header>
 </div>
+
+<br><br>
 
 <div class="flex">
     <main>
-        <h1>NUMBERONE WISHLIST</h1>
-        <p><strong>Info title her</strong></p>
+        <br><br>
+        <h1>ØnskeÆsken</h1>
+        <p><strong>ØnskeÆsken – Vi hjælper dig med samle dine ønsker.</strong></p>
 
-        <p>Skriv noget klogt corporate tekst her</p>
-        <p><i>Good artist copy, great artists steal</i> -Mattie</p>
+        <p>Hos ØnskeÆsken gør vi det nemt at samle, organisere og dele dine ønsker ét sted. Uanset om du planlægger fødselsdag, jul eller en særlig begivenhed, hjælper vi dig med at holde styr på dine ønsker og dele dem med dem, du holder af. En enkel og overskuelig løsning, der gør det lettere at lave sin ønskeliste</p>
+        <p><i></i> -ØnskeÆsken holdet</p>
+        <a th:href="@{/omos}">Test href --> om os</a>
     </main>
 </div>
-</div>
 
-
-<!--CHEWING CAT FEEL FREE TO DELETE-->
-<div class="fixed-bottom pb-2" style="left:inherit;bottom:1%;">
-    <img src="https://i.pinimg.com/originals/0a/4c/4d/0a4c4de43cd686aef1d54ef51cddda48.gif" class="fa-bounce tooltipster hidden-sm-down fr-fic fr-dii" alt="pagedoll" style="animation-duration: 1s; max-width: 2000px;" width="160" >
-</div>
-<!-- CHEWING CAT END-->
 </body>
+
 </html>
