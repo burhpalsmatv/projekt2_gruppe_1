@@ -7,7 +7,7 @@ public class Wish {
     private String note;
     private String link;
     private String wishImg;
-    private boolean priority = false;
+    private boolean priority;
     private int wishListId;
 
 
