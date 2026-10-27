@@ -1,0 +1,25 @@
+package dk.ek.onskeskyen.service;
+
+import dk.ek.onskeskyen.model.Wishlist;
+import dk.ek.onskeskyen.repository.WishlistRepo;
+import org.springframework.stereotype.Service;
+
+@Service
+public class WishlistService {
+
+    public final WishlistRepo wishlistRepo;
+
+    public WishlistService(WishlistRepo wishlistRepo) {
+        this.wishlistRepo = wishlistRepo;
+    }
+
+    public Wishlist createWishlist(String wishlistTitle) {
+        Wishlist wishlist = new Wishlist(wishlistTitle);
+        wishlistRepo.save(wishlist); // Gem i database
+        return wishlist;
+    }
+
+    public void deleteWishlist(int wishlistId, int userId) {
+        wishlistRepo.deleteWishlist(wishlistId, userId);
+    }
+}

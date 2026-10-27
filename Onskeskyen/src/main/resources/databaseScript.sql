@@ -21,7 +21,7 @@ create table wishlist
     wishlistTitle  varchar(500),
     coverImg       varchar(1000),
 
-    constraint fk_userWishListId
+    constraint fk_userWishlistId
         foreign key (userWishlistId)
             references users (userId)
 
@@ -54,5 +54,5 @@ VALUES ('Cykel', 500, 1),
 INSERT INTO users (firstName, lastName, age, email, phoneNum, password)
 VALUES ('Mateusz', 'Filipowski', 26, 'mateuszfilipowski00@gmail.com', 50230646, 'Poul');
 
-insert into wishlist (wishlistTitle, userWishListId)
+insert into wishlist (wishlistTitle, userWishlistId)
 values ('første ønskeliste', 1);

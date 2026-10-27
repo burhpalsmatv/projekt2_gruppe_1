@@ -1,0 +1,23 @@
+<!-- create.html -->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Wishlist</title>
+    <link rel="stylesheet" href="../static/style.css" th:href="@{styletest.css}">
+</head>
+<body>
+<div class="container">
+    <div class="form-container">
+        <h2>Opret ny ønskeliste</h2>
+        <form th:action="@{/postCreateWishlist}" method="post">
+            <label for="wishlistTitle">Titel:</label>
+            <input type="text" id="wishlistTitle" name="wishlistTitle" placeholder="Enter title" required>
+
+            <button type="submit">Opret ønskeliste</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

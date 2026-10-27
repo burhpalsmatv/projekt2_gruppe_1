@@ -13,12 +13,12 @@
 <div id="header-container">
     <header>
         <div id="header-left">
-            <a id="header-logo" th:href="@{/}">
-                <img th:src="@{/defaultImages/logo.png}">
+            <a id="header-logo" href="../templates/index.html">
+                <img src="../defaultImages/logo.png}">
             </a>
 
-            <a class="header-link" th:href="@{/omos}">Om Os</a>
-            <a class="header-link" th:href="@{/wishlist}">ØnskeLister</a>
+            <a class="header-link" href="../templates/omos.html">Om Os</a>
+            <a class="header-link" href="../templates/wishlist.html">ØnskeLister</a>
         </div>
 
         <div id="header-right">
@@ -47,11 +47,14 @@
     <div class="flex">
         <main>
             <div class="boxMedium" th:each="wishlist : ${listOfWishlist}">
-                <a th:href="@{/getWishes(wishListId=${wishlist.wishlistId})}" class="btn"><div>
+                <a th:href="@{/getWishes(wishlistId=${wishlist.wishlistId})}" class="btn"><div>
                     <label>Titel</label>
                     <span th:text="${wishlist.wishlistTitle}">title</span>
                 </div></a>
             </div>
+            <a class="btn" th:href="@{/getCreateWishlist(userWishlistId=${userWishlistId})}">
+                Opret ønskeliste
+            </a>
         </main>
     </div>
 </div>

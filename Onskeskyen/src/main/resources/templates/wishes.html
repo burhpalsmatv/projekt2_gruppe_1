@@ -17,8 +17,8 @@
         <img th:src="@{/defaultImages/logo.png}">
       </a>
 
-      <a class="header-link" th:href="@{/omos}">Om Os</a>
-      <a class="header-link" th:href="@{/wishlist}">ØnskeLister</a>
+      <a class="header-link" href="../templates/omos.html">Om Os</a>
+      <a class="header-link" href="../templates/wishlist.html">ØnskeLister</a>
     </div>
 
     <div id="header-right">
@@ -46,7 +46,9 @@
 <body>
   <div class="wishContainer">
     <main>
-      <h1>Ønsker:</h1>
+      <br><br>
+      <h1>Ønsker</h1>
+      <div class="wishScroll">
       <div class="wishBox" th:each="wish : ${listOfWishes}">
         <img th:src="@{'/img/' + ${wish.getWishImg()}}" alt="wish image"/>
         <div>
@@ -99,13 +101,16 @@
             <button class="btn" type="submit">Slet</button>
           </form>
         </div>
-
       </div>
-      <a class="btn" th:href="@{/getCreateWish(wishListId=${wishListId})}">
-        Create
+      </div>
+
+      <a class="btn" th:href="@{/getCreateWish(wishlistId=${wishlistId})}">
+        Opret ønske
       </a>
+
     </main>
   </div>
 </div>
 </body>
 </html>
+

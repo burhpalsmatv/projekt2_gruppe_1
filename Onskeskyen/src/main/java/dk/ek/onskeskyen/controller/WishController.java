@@ -27,11 +27,11 @@ public class WishController {
     WishlistRepo wishlistRepo;
 
     @GetMapping("/getCreateWish")
-    public String createWish(
-            @RequestParam("wishListId") int wishListId,
+    public String getCreateWish(
+            @RequestParam("wishlistId") int wishlistId,
             Model model) {
 
-        model.addAttribute("wishListId", wishListId);
+        model.addAttribute("wishlistId", wishlistId);
         return "createWish";
     }
 
@@ -66,13 +66,13 @@ public class WishController {
             @RequestParam(value = "link", required = false) String link,
             @RequestParam(value = "wishImg", required = false) String wishImg,
             @RequestParam(value = "priority", defaultValue = "false") boolean priority,
-            @RequestParam("wishListId") int wishListId) {
+            @RequestParam("wishlistId") int wishlistId) {
 
         wishService.createWish(
-                title, price, note, link, wishImg, priority, wishListId
+                title, price, note, link, wishImg, priority, wishlistId
         );
 
-        return "redirect:/getWishes?wishListId=" + wishListId;
+        return "redirect:/getWishes?wishlistId=" + wishlistId;
     }
 
     //TODO: FIX THIS ONE
