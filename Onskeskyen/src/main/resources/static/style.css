@@ -1,3 +1,4 @@
+/* farvepalette */
 :root {
     --color-1: #9BA17B;
     --color-2: #3E3F29;
@@ -8,13 +9,14 @@
     --color-7: #EFE4D2;
 }
 
+/*custom font */
 @font-face {
     font-family: 'GlyceRegular';
     src: url("./font/GlyceRegular-9M7DB.otf") format("opentype");
     src: url("./font/GlyceRegular-9M7DB.woff") format("woff");
 }
 
-
+/*templates til 3 forskellige størrelser af bokse*/
 .boxSmall {
     border-style: solid;
     border-width: 2px;
@@ -74,7 +76,7 @@ body {
     font-family: 'GlyceRegular', sans-serif;
 }
 
-/* container bruges til at wrappe hele hjemmesiden */
+/* container bruges til at wrappe hele hjemmesiden, hvis body skal være bredere end header, så sæt udenfor*/
 .container {
     max-width: 900px;
     margin: 0 auto;
@@ -125,19 +127,26 @@ body {
 }
 
 /*hvis der skal billede/video som header kan det indsættes her med en .header video*/
-.header {
+#header {
     width: 100%;
     background-color: white;
-    height: 150px;
     overflow: hidden;
     position: relative;
+    min-height: 5rem;
+    padding: 0 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 96rem;
+    margin: 0 auto;
+    box-sizing: border-box;
 }
 
-/* navigations bar */
+ /*navigations bar*/
 .navbar {
-    height: 40px;
     background-color: white;
-    width: 100%;
+    top: 0;
+    margin-bottom:25px;
 }
 
 .navbar ul {
@@ -148,8 +157,22 @@ body {
     justify-content: space-evenly;
 }
 
+#left{
+    float:left;
+}
+
+#right{
+    float:right;
+    position:absolute;
+    right:1px;
+    top:0;
+}
+
 .navbar li {
     padding-top: 10px;
+    list-style-type: none;
+    justify-content: space-evenly;
+    display:flex;
 }
 
 /* links i navigations bar*/
@@ -157,12 +180,86 @@ body {
     color: black;
     font-weight: 800;
     text-decoration: none;
+    font-size: 1.1rem;
 }
 
 /* når man hover over et link i navigations bar :D */
 .navbar li a:hover {
-    color: dimgrey;
+    color: var(--color-1);
     text-decoration: underline;
+}
+
+#header-container {
+    box-shadow: 0px 0px 4px var(--color-1);
+    width: 100%;
+    height: 100px;
+    top: 0;
+}
+
+#header-container p, a {
+    font-size: 1.1rem;
+}
+
+
+#header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    order:2;
+}
+
+#header-left {
+    display: flex;
+    align-items: center;
+    order:1;
+}
+
+.header-button {
+}
+
+#header-logo img{
+    height: 100%;
+    padding-right: 1rem;
+    display: inherit;
+    width: 100px;
+}
+
+.header-link {
+    padding: .5rem;
+    margin: .5rem;
+    text-transform: uppercase;
+    color: #333;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.header-link:hover {
+    color: var(--color-1);
+}
+/* knap */
+
+.button {
+    padding: .75rem 1.5rem;
+    background-color: var(--color-3);
+    box-shadow: 0px 0px 4px var(--color-1);
+    transition: filter 0.2s, box-shadow 0.2s;
+    color: white;
+    border-radius: 12px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    margin: 5px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+.button:hover {
+    filter: brightness(1.07);
+    box-shadow: 0px 0px 8px var(--color-1);
 }
 
 .flex {

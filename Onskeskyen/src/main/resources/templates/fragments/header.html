@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{style.css}">
+</head>
+
+<body>
+<div id="header-container">
+    <nav class="navbar" th:fragment="header">
+        <div id="header">
+            <ul id="left">
+                <li>
+                    <a id="header-logo" th:href="@{/}">
+                        <img th:src="@{../images/defaultImages/logo.png}">
+                    </a>
+                </li>
+                <li>
+                    <a class="header-link" th:href="@{/omos}">Om Os</a>
+                </li>
+                <li>
+                    <a class="header-link" th:href="@{/wishlist}">ØnskeLister</a>
+                </li>
+            </ul>
+            <ul id="right">
+
+                <!-- LOGIN -->
+                <li>
+                    <a th:href="@{../templates/login.html}" class="button">
+                        Log ind
+                    </a>
+                </li>
+
+                <!-- Opret profil -->
+                <li>
+                    <a th:href="@{../templates/opretprofil.html}" class="button">
+                        Opret profil
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+</body>
+</html>
