@@ -1,39 +1,47 @@
 package dk.ek.onskeskyen.controller;
 
-import dk.ek.onskeskyen.service.WishListService;
+import dk.ek.onskeskyen.repository.WishlistRepo;
+import dk.ek.onskeskyen.service.WishlistService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
 @Controller
-public class WishListController {
+public class WishlistController {
 
-    private final WishListService wishlistService;
+    private WishlistService wishlistService;
 
-    public WishListController(WishListService wistlistService) {
-        this.wishlistService = wistlistService;
+    public WishlistController(WishlistService wishlistService) {
+        this.wishlistService = wishlistService;
     }
 
-    @PostMapping ("/createWishlist")
-    public String createWishlist(
-            @RequestParam("wishListTitle") String wishlistTitle) {
+    @GetMapping("/getCreateWishlist")
+    public String getCreateWishlist() {
+        return "createWishlist";
 
-        wishlistService.createWishList(wishlistTitle);
-
-        return "/wishlist";
     }
 
-    @PostMapping ("/deleteWishlist")
-    public String deleteWishlist(
-            @RequestParam("wishListId") int wishlistId,
-            @RequestParam("userId") int userId
+    @PostMapping ("/postCreateWishlist")
+    public String postCreateWishlist(
+            @RequestParam("wishlistTitle") String wishlistTitle) {
+
+        wishlistService.createWishlist(wishlistTitle, 1);
+
+        return "redirect:/wishlist";
+    }
+
+    @PostMapping ("/postDeleteWishlist")
+    public String postDeleteWishlist(
+            @RequestParam("wishlistId") int wishlistId
 
     ) {
 
-        wishlistService.deleteWishlist(wishlistId, userId);
+        wishlistService.deleteWishlist(wishlistId, 1);
 
-        return "/wishlist";
+        return "redirect:/wishlist";
 
     }
 }

@@ -5,16 +5,21 @@ import dk.ek.onskeskyen.repository.WishlistRepo;
 import org.springframework.stereotype.Service;
 
 @Service
-public class WishListService {
+public class WishlistService {
 
-    WishlistRepo wishlistRepo = new WishlistRepo(); // reference objekt
+    public final WishlistRepo wishlistRepo;
 
-    public void createWishList(String wishlistTitle) {
-        Wishlist wishlist = new Wishlist(wishlistTitle);
-        wishlistRepo.save(wishlist); // Gem i databaseg
+    public WishlistService(WishlistRepo wishlistRepo) {
+        this.wishlistRepo = wishlistRepo;
+    }
+
+    public Wishlist createWishlist(String wishlistTitle, int userWishlistId) {
+        Wishlist wishlist = new Wishlist(userWishlistId, wishlistTitle);
+        wishlistRepo.save(wishlist); // Gem i database
+        return wishlist;
     }
 
     public void deleteWishlist(int wishlistId, int userId) {
-        wishlistRepo.deleteWishList(wishlistId, userId);
+        wishlistRepo.deleteWishlist(wishlistId, userId);
     }
 }
