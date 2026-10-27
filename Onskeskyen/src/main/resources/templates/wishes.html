@@ -47,7 +47,8 @@
   <div class="wishContainer">
     <main>
       <br><br>
-      <h1>Ønsker:</h1>
+      <h1>Ønsker</h1>
+      <div class="wishScroll">
       <div class="wishBox" th:each="wish : ${listOfWishes}">
         <img th:src="@{'/img/' + ${wish.getWishImg()}}" alt="wish image"/>
         <div>
@@ -82,13 +83,16 @@
             Edit
           </a>
         </div>
-
       </div>
+      </div>
+
       <a class="btn" th:href="@{/getCreateWish(wishlistId=${wishlistId})}">
-        Create
+        Opret ønske
       </a>
+
     </main>
   </div>
 </div>
 </body>
 </html>
+
