@@ -51,6 +51,14 @@
                     <label>Titel</label>
                     <span th:text="${wishlist.wishlistTitle}">title</span>
                 </div></a>
+
+                <div>
+                    <form th:action="@{/postDeleteWishlist}" method="post">
+                        <input type="hidden" name="wishlistId" th:value="${wishlist.getWishlistId()}">
+
+                        <button class="btn" type="submit">* Slet Ønskeliste *</button>
+                    </form>
+                </div>
             </div>
             <a class="btn" th:href="@{/getCreateWishlist(userWishlistId=${userWishlistId})}">
                 Opret ønskeliste
