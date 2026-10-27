@@ -7,28 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>ØnskeÆsken</title>
     <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
-    <link rel="stylesheet" href="../static/header.css" th:href="@{header.css}">
 
 
 </head>
 
 <body>
-<div id="header-container">
-    <header>
-        <div id="header-left">
-            <a id="header-logo" href="">
-                <img src=""> <!-- mangler img til logo -->
-            </a>
-            <a class="header-link" href="../templates/omos.html">Om Os</a>
-            <a class="header-link" href="../templates/wishlist.html">ØnskeLister</a>
-
-        </div>
-        <div id="header-right">
-        </div>
-    </header>
-</div>
-
-<br><br><br><br><br><br><br>
+<div th:replace="~{fragments/header :: header}">Header</div>
 
 <div class="ex1">
 
@@ -93,9 +77,7 @@
     </p>
 
 </div>
-</div>
 </body>
-
 </html>
 
 

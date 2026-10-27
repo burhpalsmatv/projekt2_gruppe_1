@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class WishListController {
 
-    private WishListService wishlistService;
+    private final WishListService wishlistService;
 
     public WishListController(WishListService wistlistService) {
         this.wishlistService = wistlistService;

@@ -4,57 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Forside - ØnskeÆsken</title>
-    <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
-    <link rel="stylesheet" href="../static/header.css" th:href="@{header.css}">
+    <link rel="stylesheet" th:href="@{style.css}">
 
 </head>
 
 <body>
-<div id="header-container">
-    <header>
-        <div id="header-left">
-            <a id="header-logo" th:href="@{/}">
-              <img th:src="@{/defaultImages/logo.png}">
-            </a>
+<div th:replace="~{fragments/header :: header}">Header</div>
+<div class="container">
+    <div class="flex">
+        <main>
+            <br><br>
+            <h1>ØnskeÆsken</h1>
+            <p><strong>ØnskeÆsken – Vi hjælper dig med samle dine ønsker.</strong></p>
 
-            <a class="header-link" th:href="@{/omos}">Om Os</a>
-            <a class="header-link" th:href="@{/wishlist}">ØnskeLister</a>
-        </div>
-
-        <div id="header-right">
-            <!-- Log ind -->
-            <div class="header-button">
-                <a href="../templates/login.html" class="button">
-                    Log ind
-                </a>
-                </label>
-
-            </div>
-
-            <!-- Opret profil -->
-            <div class="header-button">
-                <a href="../templates/opretprofil.html" class="button">
-                    Opret profil
-                </a>
-                </label>
-
-            </div>
-        </div>
-    </header>
-</div>
-
-<br><br>
-
-<div class="flex">
-    <main>
-        <br><br>
-        <h1>ØnskeÆsken</h1>
-        <p><strong>ØnskeÆsken – Vi hjælper dig med samle dine ønsker.</strong></p>
-
-        <p>Hos ØnskeÆsken gør vi det nemt at samle, organisere og dele dine ønsker ét sted. Uanset om du planlægger fødselsdag, jul eller en særlig begivenhed, hjælper vi dig med at holde styr på dine ønsker og dele dem med dem, du holder af. En enkel og overskuelig løsning, der gør det lettere at lave sin ønskeliste</p>
-        <p><i></i> -ØnskeÆsken holdet</p>
-        <a th:href="@{/omos}">Test href --> om os</a>
-    </main>
+            <p>Hos ØnskeÆsken gør vi det nemt at samle, organisere og dele dine ønsker ét sted. Uanset om du planlægger
+                fødselsdag, jul eller en særlig begivenhed, hjælper vi dig med at holde styr på dine ønsker og dele dem
+                med dem, du holder af. En enkel og overskuelig løsning, der gør det lettere at lave sin ønskeliste</p>
+            <p><i></i> -ØnskeÆsken holdet</p>
+            <a th:href="@{/omos}">Test href --> om os</a>
+        </main>
+    </div>
 </div>
 
 </body>
