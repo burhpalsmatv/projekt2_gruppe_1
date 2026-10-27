@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ønsker - ØnskeÆsken</title>
   <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
   <link rel="stylesheet" href="../static/header.css" th:href="@{header.css}">
-
 </head>
 
 <body>
 <div id="header-container">
   <header>
+
     <div id="header-left">
       <a id="header-logo" th:href="@{/}">
         <img th:src="@{/defaultImages/logo.png}">
@@ -27,57 +28,66 @@
         <a href="../templates/login.html" class="button">
           Log ind
         </a>
-        </label>
 
-      </div>
+    </div>
 
-      <!-- Opret profil -->
-      <div class="header-button">
+    <!-- Opret profil -->
+    <div class="header-button">
         <a href="../templates/opretprofil.html" class="button">
           Opret profil
         </a>
-        </label>
+    </div>
 
-      </div>
     </div>
   </header>
 </div>
 
-<body>
   <div class="wishContainer">
     <main>
+
       <br><br>
+
       <h1>Ønsker</h1>
+
       <div class="wishScroll">
       <div class="wishBox" th:each="wish : ${listOfWishes}">
         <img th:src="@{'/img/' + ${wish.getWishImg()}}" alt="wish image"/>
+
         <div>
           <label>Titel:</label>
           <span th:text="${wish.getTitle()}">Titel</span>
         </div>
+
         <div>
           <label>Pris:</label>
           <span th:text="${wish.getPrice()} + DKK">Pris</span>
         </div>
+
         <div>
           <label>Note:</label>
           <span th:text="${wish.getNote()}">Note</span>
         </div>
+
         <div>
           <label><a th:href="${wish.getLink()}">Link</a></label>
         </div>
+
         <div>
           <label>Billede:</label>
           <span th:text="${wish.getWishImg()}">Billede</span>
         </div>
+
         <div>
           <label>Prioteret ønske:</label>
           <span th:text="${wish.getPriority()}">Prioteret ønske</span>
         </div>
+
         <div>
           <label>Ønske liste nr:</label>
           <span th:text="${wish.getWishlistId()}">Wishlist</span>
         </div>
+
+
         <div>
           <form th:action="@{/getEditWish}" method="get">
             <input type="hidden" name="wishId" th:value="${wish.getWishId()}">
@@ -101,6 +111,7 @@
             <button class="btn" type="submit">Slet</button>
           </form>
         </div>
+
       </div>
       </div>
 
@@ -110,7 +121,8 @@
 
     </main>
   </div>
-</div>
+
 </body>
+
 </html>
 
