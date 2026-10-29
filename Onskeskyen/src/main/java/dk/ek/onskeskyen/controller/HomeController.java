@@ -51,10 +51,11 @@ public class HomeController {
      * See wishes.HTML
      */
     @GetMapping("/getWishes")
-    public String getWishes(Model model, @RequestParam("wishlistId") int wishlistId) {
+    public String getWishes(Model model, @RequestParam("wishlistId") int wishlistId, @RequestParam("wishlistTitle") String wishlistTitle) {
         List<Wish> listOfWishes = wishRepo.getAllWishes(wishlistId);
         model.addAttribute("listOfWishes", listOfWishes);
         model.addAttribute("wishlistId", wishlistId);
+        model.addAttribute("wishlistTitle", wishlistTitle);
         return "wishes";
     }
 }
