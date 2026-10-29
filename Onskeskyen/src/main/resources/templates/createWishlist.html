@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Wishlist</title>
-    <link rel="stylesheet" href="../static/style.css" th:href="@{styletest.css}">
+    <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
 </head>
 <body>
-<div class="container">
-    <div class="form-container">
+<div th:replace="~{fragments/header :: header}">Header</div>
+<div class="form-container">
+    <div class="form-section">
         <h2>Opret ny ønskeliste</h2>
         <form th:action="@{/postCreateWishlist}" method="post">
             <label for="wishlistTitle">Titel:</label>
