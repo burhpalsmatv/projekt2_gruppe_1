@@ -21,7 +21,7 @@
 
             <div class="wishScroll">
                 <div class="boxMedium" th:each="wishlist : ${listOfWishlist}">
-                    <a th:href="@{/getWishes(wishlistId=${wishlist.wishlistId})}" class="btn">
+                    <a th:href="@{/getWishes(wishlistId=${wishlist.wishlistId}, wishlistTitle=${wishlist.wishlistTitle})}" class="btn">
                         <div>
                             <label>Titel:</label>
                             <span th:text="${wishlist.wishlistTitle}">title</span>
