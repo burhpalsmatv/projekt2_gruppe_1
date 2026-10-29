@@ -90,6 +90,12 @@ body {
     text-decoration: none;
 }
 
+.wishBox a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
 /* til login/oprette profil siderne */
 .ex1 {
     margin-left: 50px;
@@ -215,9 +221,6 @@ body {
     order:1;
 }
 
-.header-button {
-}
-
 #header-logo img{
     height: 100%;
     padding-right: 1rem;
@@ -256,7 +259,6 @@ body {
     text-align: center;
     vertical-align: middle;
 }
-
 
 .button:hover {
     filter: brightness(1.07);
