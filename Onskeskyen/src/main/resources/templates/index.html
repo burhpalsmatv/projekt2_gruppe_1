@@ -14,11 +14,22 @@
     <div class="flex">
         <main>
             <br><br>
-            <h1>ØnskeÆsken</h1>
-            <p><strong>Velkommen til ØnskeÆsken!</strong></p>
-            <a class="btn" th:href="@{/wishlist}" style="color: blue; text-decoration: underline;">
-                Kom igang med at oprette din første ønskeliste!
+            <h1> <img src="/images/defaultImages/logo.png" alt="ØnskeÆsken logo" style="width: 400px; height: 400px; object-fit: contain;"> </h1>
+            <h1>Velkommen til ØnskeÆsken!</h1>
+
+            <p> Kom igang med at oprette
+            <a th:href="@{/wishlist}" style="color: #7EACB5;">
+                din første ønskeliste
             </a>
+            </p>
+
+            <p>Find gaveinspiration:</p>
+            <p>
+                Til <a th:href="@{/popularwishes#tilham}" style="color: #7EACB5;">ham</a>
+            </p>
+            <p>
+                Til <a th:href="@{/popularwishes#tilhende}" style="color: #7EACB5;">hende</a>
+            </p>
         </main>
     </div>
 </div>
