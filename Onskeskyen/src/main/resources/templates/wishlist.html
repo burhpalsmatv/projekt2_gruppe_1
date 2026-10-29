@@ -23,15 +23,15 @@
 
             <div class="boxMedium" th:each="wishlist : ${listOfWishlist}">
                 <a th:href="@{/getWishes(wishlistId=${wishlist.wishlistId})}" class="btn"><div>
-                    <label>Titel</label>
-                    <span th:text="${wishlist.wishlistTitle}">title</span>
+                    <label>Titel:</label>
+                    <span th:text="${wishlist.wishlistTitle}">xx$</span>
                 </div></a>
 
                 <div>
                     <form th:action="@{/postDeleteWishlist}" method="post">
                         <input type="hidden" name="wishlistId" th:value="${wishlist.getWishlistId()}">
 
-                        <button class="btn" type="submit">* Slet Ønskeliste *</button>
+                        <button class="btn" type="submit">Slet</button>
                     </form>
                 </div>
             </div>
