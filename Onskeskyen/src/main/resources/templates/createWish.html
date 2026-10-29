@@ -9,8 +9,8 @@
 
 <body>
 <div th:replace="~{fragments/header :: header}">Header</div>
-<div class="container">
-    <div class="form-container">
+<div class="form-container">
+    <div class="form-section">
         <h2>Opret nyt ønske</h2>
         <form th:action="@{/postCreateWish}" method="post">
             <label for="title">Titel:</label>
@@ -33,7 +33,7 @@
             <input type="hidden" id="wishlistId" name="wishlistId" th:value="${wishlistId}">
 
 
-            <button type="submit">Opret ønske</button>
+            <button class="button" type="submit">Opret ønske</button>
         </form>
     </div>
 </div>

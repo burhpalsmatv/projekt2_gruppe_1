@@ -26,7 +26,7 @@
             <input type="text" id="link" name="link" th:value="${link} ?: ''">
 
             <label for="wishImg">Billede:</label>
-            <input type="text" id="wishImg" name="wishImg" th:value="${wishId}">
+            <input type="text" id="wishImg" name="wishImg" th:value="${wishImg}">
 
             <label for="priority">Prioriteret ønske?</label>
             <input type="checkbox" id="priority" name="priority" th:value="true" th:checked="${priority}">
@@ -36,7 +36,7 @@
             <input type="hidden" id="wishId" name="wishId" th:value="${wishId}">
 
 
-            <button type="submit">Rediger ønske</button>
+            <button class="button" type="submit">Rediger ønske</button>
         </form>
     </div>
 </div>

@@ -14,7 +14,10 @@
 <div class="wishContainer">
     <main>
 
-      <h1>Ønsker</h1>
+      <h1>
+        <label>Ønskeliste:</label>
+        <span th:text="${wishlistId}"></span>
+      </h1>
 
       <!-- The passed listOfWishes can be used in this HTML file (see HomeController.getAllWishes())-->
       <a class="btn" th:href="@{/getCreateWish(wishlistId=${wishlistId})}">
@@ -42,17 +45,11 @@
         </div>
 
         <div>
-          <label><a th:href="${wish.getLink()}">Link</a></label>
+          <label><a th:href="${wish.getLink()}">✨Link✨</a></label>
         </div>
 
         <div>
-          <label>Prioteret ønske:</label>
-          <span th:text="${wish.getPriority()}">Prioteret ønske</span>
-        </div>
-
-        <div>
-          <label>Ønske liste nr:</label>
-          <span th:text="${wish.getWishlistId()}">Wishlist</span>
+          <span th:if="${wish.getPriority()}">Prioteret ønske</span>
         </div>
 
         <!-- This GET request sends the selected wish data to the controller when the user clicks
@@ -68,18 +65,17 @@
             <input type="hidden" name="wishImg" th:value="${wish.getWishImg()}">
             <input type="hidden" name="priority" th:value="${wish.getPriority()}">
 
-            <button class="btn" type="submit">Rediger</button>
+            <button class="button" type="submit">Rediger</button>
           </form>
+              <form th:action="@{/postDeleteWish}" method="post">
+                <input type="hidden" name="wishId" th:value="${wish.getWishId()}">
+                <input type="hidden" name="wishlistId" th:value="${wish.getWishlistId()}">
+
+                <button class="button" type="submit">Slet</button>
+              </form>
         </div>
 
-        <div>
-          <form th:action="@{/postDeleteWish}" method="post">
-            <input type="hidden" name="wishId" th:value="${wish.getWishId()}">
-            <input type="hidden" name="wishlistId" th:value="${wish.getWishlistId()}">
 
-            <button class="btn" type="submit">Slet</button>
-          </form>
-        </div>
 
       </div>
       </div>
