@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gaveinspiration - ØnskeÆsken</title>
+  <link rel="stylesheet" href="../static/style.css" th:href="@{style.css}">
+</head>
+
+<body>
+<div th:replace="~{fragments/header :: header}">Header</div>
+<div class="container">
+  <div class="flex">
+    <main>
+
+        <h1 style="text-align: left;">ØnskeÆsken</h1>
+        <p><strong>ØnskeÆsken gaveinspiration</strong></p>
+
+      <section id="tilham">
+        <h2>Til ham:</h2>
+
+        <p>LEGO Starwars</p>
+        <p>Tennis sokker</p>
+        <p>Golfkølle</p>
+        <p>Beyblade</p>
+        <p>Nintendo Switch</p>
+      </section>
+
+      <section id=tilhende>
+        <h2>Til hende:</h2>
+
+        <p>Blomsterkjole</p>
+        <p>Øreringe</p>
+        <p>Malerpensel</p>
+        <p>Golfkølle</p>
+        <p>Tennis sokker</p>
+
+      </section>
+    </main>
+  </div>
+</div>
+</body>
+</html>

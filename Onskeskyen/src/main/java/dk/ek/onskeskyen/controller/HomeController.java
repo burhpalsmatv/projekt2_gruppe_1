@@ -31,6 +31,11 @@ public class HomeController {
         return "omos";
     }
 
+    @GetMapping("/popularwishes")
+    public String popularWishes() {
+        return "popularwishes";
+    }
+
     @GetMapping("/wishlist")
     public String getWishlist(Model model) {
         List<Wishlist> listOfWishlist = wishlistRepo.getAllWishlists();
