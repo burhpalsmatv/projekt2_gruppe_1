@@ -10,34 +10,34 @@
 
 <body>
 <div th:replace="~{fragments/header :: header}">Header</div>
-
-<div class=container>
-
-    <div class="flex">
+    <div class="wishContainer">
         <main>
             <h1>ØnskeLister</h1>
 
-            <a class="btn" th:href="@{/getCreateWishlist(userWishlistId=${userWishlistId})}">
+            <a class="button" th:href="@{/getCreateWishlist(userWishlistId=${userWishlistId})}">
                 Opret ønskeliste
             </a>
 
-            <div class="boxMedium" th:each="wishlist : ${listOfWishlist}">
-                <a th:href="@{/getWishes(wishlistId=${wishlist.wishlistId})}" class="btn"><div>
-                    <label>Titel:</label>
-                    <span th:text="${wishlist.wishlistTitle}">xx$</span>
-                </div></a>
 
-                <div>
+            <div class="wishScroll">
+                <div class="boxMedium" th:each="wishlist : ${listOfWishlist}">
+                    <a th:href="@{/getWishes(wishlistId=${wishlist.wishlistId})}" class="btn">
+                        <div>
+                            <label>Titel:</label>
+                            <span th:text="${wishlist.wishlistTitle}">title</span>
+                        </div>
+                    </a>
+
                     <form th:action="@{/postDeleteWishlist}" method="post">
                         <input type="hidden" name="wishlistId" th:value="${wishlist.getWishlistId()}">
 
-                        <button class="btn" type="submit">Slet</button>
+                        <button class="button" type="submit">
+                            <a th:action="@{/postDeleteWishlist}">* Slet Ønskeliste *</a>
+                        </button>
                     </form>
                 </div>
             </div>
-
         </main>
     </div>
-</div>
 </body>
 </html>
