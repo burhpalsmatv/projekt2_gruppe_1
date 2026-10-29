@@ -14,8 +14,6 @@
 <div class="wishContainer">
     <main>
 
-      <br><br>
-
       <h1>Ønsker</h1>
 
       <!-- The passed listOfWishes can be used in this HTML file (see HomeController.getAllWishes())-->
@@ -24,10 +22,10 @@
       </a>
 
 
+
       <div class="wishScroll">
       <div class="wishBox" th:each="wish : ${listOfWishes}">
         <img th:src="@{${wish.getWishImg()}}" alt="wish image"/>
-
         <div>
           <label>Titel:</label>
           <span th:text="${wish.getTitle()}">Titel</span>
@@ -85,7 +83,7 @@
 
       </div>
       </div>
-
+      <a class="button" th:onclick="window.history.go(-1)"><-- GÅ TILBAGE</a>
     </main>
   </div>
 
