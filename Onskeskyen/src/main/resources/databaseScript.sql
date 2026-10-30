@@ -14,7 +14,7 @@ create table users
     profilePicture varchar(1000)
 );
 
-create table wishlist
+create table wishlists
 (
     wishlistId     int auto_increment primary key,
     userWishlistId int,
@@ -27,7 +27,7 @@ create table wishlist
 
 );
 
-create table wish
+create table wishes
 (
     wishId     int auto_increment primary key,
     title      varchar(250) not null,
@@ -42,11 +42,11 @@ create table wish
 
 
 
-INSERT INTO wishlist (wishlistId)
+INSERT INTO wishlists (wishlistId)
 VALUES (1),
        (2),
        (3);
-INSERT INTO wish (title, price, wishlistId)
+INSERT INTO wishes (title, price, wishlistId)
 VALUES ('Cykel', 500, 1),
        ('Kingston 32GB DDR5 ram', 4999, 1),
        ('Mad (jeg er sulten)', 500, 1);
@@ -54,5 +54,5 @@ VALUES ('Cykel', 500, 1),
 INSERT INTO users (firstName, lastName, age, email, phoneNum, password)
 VALUES ('Mateusz', 'Filipowski', 26, 'mateuszfilipowski00@gmail.com', 50230646, 'Poul');
 
-insert into wishlist (wishlistTitle, userWishlistId)
+insert into wishlists (wishlistTitle, userWishlistId)
 values ('første ønskeliste', 1);

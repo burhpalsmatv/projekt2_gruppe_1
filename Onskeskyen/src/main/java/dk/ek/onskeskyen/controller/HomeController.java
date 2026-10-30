@@ -2,8 +2,8 @@ package dk.ek.onskeskyen.controller;
 
 import dk.ek.onskeskyen.model.Wish;
 import dk.ek.onskeskyen.model.Wishlist;
-import dk.ek.onskeskyen.repository.WishlistRepo;
-import dk.ek.onskeskyen.repository.WishRepo;
+import dk.ek.onskeskyen.repository.WishesRepo;
+import dk.ek.onskeskyen.repository.WishlistsRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,10 +16,10 @@ import java.util.List;
 public class HomeController {
 
     @Autowired
-    WishlistRepo wishlistRepo;
+    WishlistsRepo wishlistsRepo;
 
     @Autowired
-    WishRepo wishRepo;
+    WishesRepo wishesRepo;
 
     @GetMapping("/index")
     public String mainPage(Model model) {
@@ -38,7 +38,7 @@ public class HomeController {
 
     @GetMapping("/wishlist")
     public String getWishlist(Model model) {
-        List<Wishlist> listOfWishlist = wishlistRepo.getAllWishlists();
+        List<Wishlist> listOfWishlist = wishlistsRepo.getAllWishlists();
         model.addAttribute("listOfWishlist", listOfWishlist);
 
         return "wishlist";
@@ -57,7 +57,7 @@ public class HomeController {
      */
     @GetMapping("/getWishes")
     public String getWishes(Model model, @RequestParam("wishlistId") int wishlistId) {
-        List<Wish> listOfWishes = wishRepo.getAllWishes(wishlistId);
+        List<Wish> listOfWishes = wishesRepo.getAllWishes(wishlistId);
         model.addAttribute("listOfWishes", listOfWishes);
         model.addAttribute("wishlistId", wishlistId);
         return "wishes";

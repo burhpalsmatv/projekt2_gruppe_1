@@ -15,12 +15,12 @@ import java.util.List;
 
 
 @Repository
-public class WishlistRepo {
+public class WishlistsRepo {
 
     @Autowired
     protected DataSource dataSource;
 
-    public WishlistRepo(DataSource dataSource) {
+    public WishlistsRepo(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 

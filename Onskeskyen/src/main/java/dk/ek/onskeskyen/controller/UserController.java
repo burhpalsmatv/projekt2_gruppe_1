@@ -1,7 +1,7 @@
 package dk.ek.onskeskyen.controller;
 
 import dk.ek.onskeskyen.model.User;
-import dk.ek.onskeskyen.repository.UserRepo;
+import dk.ek.onskeskyen.repository.UsersRepo;
 import dk.ek.onskeskyen.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class UserController {
 
     @Autowired
-    UserRepo userRepo;
+    UsersRepo usersRepo;
 
     @Autowired
     UserService userService;
@@ -44,14 +44,14 @@ public class UserController {
         String img = userService.getImg(profilePicture);
 
         User user = new User(userId, firstName, lastName, email, profilePicture, phoneNumber, password, age);
-        userRepo.saveUser(user);
+        usersRepo.saveUser(user);
         return "redirect:/";
     }
 
 
     @PostMapping("/deleteUser")
     public String deleteUser(@RequestParam("userId") int userId) {
-        userRepo.deleteUser(userId);
+        usersRepo.deleteUser(userId);
         return "redirect:/";
     }
 
