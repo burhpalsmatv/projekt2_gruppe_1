@@ -16,8 +16,8 @@ public class WishService {
         wishesRepo.save(wish);
     }
 
-    public void editWish(int wishId, String title, double price, String note, String link, String wishImg, boolean priority, int wishlistId) {
-        wishesRepo.updateWish(wishId, title, price, note, link, wishImg, priority, wishlistId);
+    public void editWish(int wishId, String title, double price, String note, String link, String wishImg, boolean priority) {
+        wishesRepo.updateWish(wishId, title, price, note, link, wishImg, priority);
     }
 
     public void deleteWish(int wishId) {

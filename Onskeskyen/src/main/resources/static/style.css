@@ -16,24 +16,6 @@
     src: url("./font/GlyceRegular-9M7DB.woff") format("woff");
 }
 
-/*templates til 3 forskellige størrelser af bokse*/
-.boxSmall {
-    border-style: solid;
-    border-width: 2px;
-    border-color: var(--color-2);
-    padding-left:5px;
-    text-align: center;
-    background-color: var(--color-3);
-    height: 175px;
-    width:225px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-right: 10px;
-    margin-bottom: 15px;
-    margin-top: 5px;
-}
-
 .boxMedium {
     border-style: solid;
     border-width: 2px;
@@ -57,23 +39,6 @@
 .boxMedium a{
     text-decoration: none;
     color: black;
-}
-
-.boxLarge {
-    border-style: solid;
-    border-width: 2px;
-    border-color: var(--color-2);
-    padding-left:5px;
-    text-align: center;
-    background-color: var(--color-5);
-    height: 400px;
-    width:425px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-right: 10px;
-    margin-bottom: 15px;
-    margin-top: 5px;
 }
 
 body {
@@ -271,7 +236,7 @@ body {
 
 .button:hover {
     filter: brightness(1.07);
-    box-shadow: 0px 0px 8px var(--color-1);
+    box-shadow: 0 0 8px var(--color-1);
 }
 
 .flex {

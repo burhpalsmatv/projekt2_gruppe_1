@@ -19,20 +19,17 @@ public class Wishlist {
         this.coverImg = coverImg;
     }
 
-    // Muligvis slet senere
     public Wishlist(String wishlistTitle, String coverImg) {
         this.wishlistTitle = wishlistTitle;
         this.coverImg = coverImg;
     }
 
-    // Muligvis slet senere
     public Wishlist(int wishlistId, String wishlistTitle, String coverImg) {
         this.wishlistId = wishlistId;
         this.wishlistTitle = wishlistTitle;
         this.coverImg = coverImg;
     }
 
-    // Tom Constructor
     public Wishlist() {}
 
     public Wishlist(int userWishlistId, String wishlistTitle) {
