@@ -1,7 +1,7 @@
 package dk.ek.onskeskyen.service;
 
 import dk.ek.onskeskyen.model.Wish;
-import dk.ek.onskeskyen.repository.WishRepo;
+import dk.ek.onskeskyen.repository.WishesRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,18 +9,18 @@ import org.springframework.stereotype.Service;
 public class WishService {
 
     @Autowired
-    WishRepo wishRepo;
+    WishesRepo wishesRepo;
 
     public void createWish(String title, double price, String note, String link, String wishImg, boolean priority, int wishlistId) {
         Wish wish = new Wish(title, price, note, link, wishImg, wishlistId, priority);
-        wishRepo.save(wish);
+        wishesRepo.save(wish);
     }
 
     public void editWish(int wishId, String title, double price, String note, String link, String wishImg, boolean priority, int wishlistId) {
-        wishRepo.updateWish(wishId, title, price, note, link, wishImg, priority, wishlistId);
+        wishesRepo.updateWish(wishId, title, price, note, link, wishImg, priority, wishlistId);
     }
 
     public void deleteWish(int wishId) {
-        wishRepo.deleteWish(wishId);
+        wishesRepo.deleteWish(wishId);
     }
 }

@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 @Repository
-public class WishRepo {
+public class WishesRepo {
 
     @Autowired
     protected DataSource dataSource;
