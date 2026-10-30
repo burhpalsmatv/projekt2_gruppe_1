@@ -68,7 +68,7 @@ public class WishController {
     @PostMapping("/postEditWish")
     public String postEditWish(@RequestParam("title") String title, @RequestParam("price") double price, @RequestParam(value = "note", required = false) String note, @RequestParam(value = "link", required = false) String link, @RequestParam(value = "wishImg", required = false) String wishImg, @RequestParam(value = "priority", defaultValue = "false") boolean priority, @RequestParam("wishId") int wishId, @RequestParam("wishlistId") int wishlistId) {
 
-        wishService.editWish(wishId, title, price, note, link, wishImg, priority, wishlistId);
+        wishService.editWish(wishId, title, price, note, link, wishImg, priority);
 
         return "redirect:/getWishes?wishlistId=" + wishlistId;
     }
