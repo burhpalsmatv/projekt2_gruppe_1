@@ -72,10 +72,6 @@ public class WishlistRepo {
 
     public void deleteWishlist(int wishlistId, int userWishlistId) { // userId
         String sql = "DELETE FROM wishlist WHERE wishlistId = ? AND userWishlistId = ?";
-        // Eventuelt find et bedre lag, hvor man tjekker om useren har adgang til denne wishlist
-        // -- DET ER FOR AT SØRGE FOR AT USERS IKKE KAN SLETTE WISHLISTS DE IKKE SELV EJER --
-        // Lige nu tjekkes det kun i "WHERE wishlistId = ? and userid = ?"
-        // "userId = ?"
 
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -102,21 +98,6 @@ public class WishlistRepo {
             statement.setString(2, wishlist.getWishlistTitle());
             statement.setString(3, wishlist.getCoverImg());
 
-            statement.executeUpdate();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void updateWishlist(Wishlist updatedWishlist) {
-        String sql = "UPDATE wishlist SET userWishlistId = ?, wishlistTitle = ?, coverImg = ?";
-
-        try (Connection con = dataSource.getConnection();
-             PreparedStatement statement = con.prepareStatement(sql)) {
-            statement.setInt(1, updatedWishlist.getUserWishlistId());
-            statement.setString(2, updatedWishlist.getWishlistTitle());
-            statement.setString(3, updatedWishlist.getCoverImg());
             statement.executeUpdate();
 
         } catch (SQLException e) {
