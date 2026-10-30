@@ -17,7 +17,7 @@ Projekt 2 gruppe 1 ønskesky applikation
 13. I database felt -> klik og vent på den loader
 14. Vælg projekt2_gruppe1_db
 15. Tryk apply eller OK knap 
-16. 
+
 -- Vi er kørende nu :D --
 
 
