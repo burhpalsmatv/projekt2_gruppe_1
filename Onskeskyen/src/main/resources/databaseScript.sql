@@ -41,18 +41,13 @@ create table wishes
 );
 
 
-
-INSERT INTO wishlists (wishlistId)
-VALUES (1),
-       (2),
-       (3);
-INSERT INTO wishes (title, price, wishlistId)
-VALUES ('Cykel', 500, 1),
-       ('Kingston 32GB DDR5 ram', 4999, 1),
-       ('Mad (jeg er sulten)', 500, 1);
+INSERT INTO wishes (title, price, note, link, wishImg, priority, wishlistId)
+VALUES ('Cykel', 500, 'Hurtig', 'https://www.kbhcykler.dk/shop/skovcykel-3-gear-med-kurv/', 'https://www.kbhcykler.dk/wp-content/uploads/2018/12/0565sortdani-1-scaled-1.png', true, 1),
+       ('Kingston 32GB DDR5 ram', 4999, 'please', 'https://www.pricerunner.dk/pl/38-3280128297/RAM/Kingston-Fury-Beast-Black-DDR5-6000MHz-2x16GB-ECC-%28KF560C30BBEK2-32%29-Sammenlign-Priser', 'https://owp.klarna.com/product/3217867730/Kingston-Fury-Beast-Black-DDR5-6000MHz-2x16GB-ECC-%28KF560C30BBEK2-32%29.jpg', true, 1),
+       ('Mad', 500, 'Jeg er sulten', 'https://madplan.ai/opskrift/dansk-koed-og-melbollesuppe/', 'https://madplan.ai/wp-content/uploads/2025/12/dansk-kod-og-melbollesuppe-5382.jpg', false, 1);
 
 INSERT INTO users (firstName, lastName, age, email, phoneNum, password)
-VALUES ('Mateusz', 'Filipowski', 26, 'mateuszfilipowski00@gmail.com', 50230646, 'Poul');
+VALUES ('Admin', 'Admin', 30, 'admin@gmail.com', 12345678, 'Admin123');
 
 insert into wishlists (wishlistTitle, userWishlistId)
-values ('første ønskeliste', 1);
+values ('Min første ønskeliste', 1);

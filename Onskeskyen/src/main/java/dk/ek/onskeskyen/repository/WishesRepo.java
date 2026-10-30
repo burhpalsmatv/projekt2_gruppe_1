@@ -31,7 +31,7 @@ public class WishesRepo {
      */
     public ArrayList<Wish> getAllWishes(int wishlistId) {
         ArrayList<Wish> listOfWishes = new ArrayList<>();
-        String sql = "SELECT * FROM wish WHERE wishlistId = ?";
+        String sql = "SELECT * FROM wishes WHERE wishlistId = ?";
 
         try (Connection con = dataSource.getConnection();
              PreparedStatement statement = con.prepareStatement(sql)) {
@@ -64,7 +64,7 @@ public class WishesRepo {
 
 
     public void deleteWish(int wishId) {
-        String sql = "DELETE FROM wish WHERE wishId = ?";
+        String sql = "DELETE FROM wishes WHERE wishId = ?";
 
         try(Connection connection = dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -78,8 +78,8 @@ public class WishesRepo {
 
     public void updateWish(int wishId, String title, double price, String note, String link, String wishImg, boolean priority) {
 
-        String sql1 = "SELECT title, price, note, link, wishImg, priority FROM wish WHERE wishId = ? FOR UPDATE";
-        String sql2 = "UPDATE wish SET title = ?, price = ?, note = ?, link = ?, wishImg =?, priority=? WHERE wishId = ?";
+        String sql1 = "SELECT title, price, note, link, wishImg, priority FROM wishes WHERE wishId = ? FOR UPDATE";
+        String sql2 = "UPDATE wishes SET title = ?, price = ?, note = ?, link = ?, wishImg =?, priority=? WHERE wishId = ?";
 
         try (Connection con = dataSource.getConnection()) {
             try {
@@ -113,7 +113,7 @@ public class WishesRepo {
     }
 
     public void save(Wish wish) {
-        String sql = "INSERT INTO wish(title, price, note, link, wishImg, priority, wishlistId)" +
+        String sql = "INSERT INTO wishes(title, price, note, link, wishImg, priority, wishlistId)" +
                 "VALUES(?,?,?,?,?,?,?)";
 
         try (Connection connection = dataSource.getConnection();

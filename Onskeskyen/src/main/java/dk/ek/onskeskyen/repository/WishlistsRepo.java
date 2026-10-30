@@ -26,7 +26,7 @@ public class WishlistsRepo {
 
     public List<Wishlist> getAllWishlists() {
         List<Wishlist> listOfWishlist = new ArrayList<>();
-        String sql = "SELECT * FROM wishlist";
+        String sql = "SELECT * FROM wishlists";
 
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql);
@@ -49,7 +49,7 @@ public class WishlistsRepo {
 
     public Wishlist getWishlist(int wishlistId) {
         Wishlist wishlist = new Wishlist();
-        String sql = "SELECT * FROM wishlist WHERE wishlistId =?";
+        String sql = "SELECT * FROM wishlists WHERE wishlistId =?";
 
         try (Connection connection = dataSource.getConnection()) {
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -71,7 +71,7 @@ public class WishlistsRepo {
 
 
     public void deleteWishlist(int wishlistId, int userWishlistId) { // userId
-        String sql = "DELETE FROM wishlist WHERE wishlistId = ? AND userWishlistId = ?";
+        String sql = "DELETE FROM wishlists WHERE wishlistId = ? AND userWishlistId = ?";
 
         try (Connection connection = dataSource.getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -89,7 +89,7 @@ public class WishlistsRepo {
     public void save(Wishlist wishlist) {
 
 
-        String sql = "INSERT INTO wishlist(userWishlistId, wishlistTitle, coverImg)" +
+        String sql = "INSERT INTO wishlists(userWishlistId, wishlistTitle, coverImg)" +
                 "VALUES(?,?, ?)";
 
         try (Connection connection = dataSource.getConnection();
